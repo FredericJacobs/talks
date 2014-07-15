@@ -1,2 +1,10 @@
-talks
-=====
+## Talks given 
+
+- [Movies.io, the Launch](http://www.swissjeese.com/2012/index.html), SwissJeese, 2nd June 2012. [Slides](https://speakerdeck.com/fredericjacobs/movies-dot-io-the-launch)
+- [Scaling NodeJS webapps](http://www.meetup.com/jsromandie/events/81731522/), JSGenève (JavaScript Meetup), September 25, 2012. [Slides](https://speakerdeck.com/fredericjacobs/jsgeneve-talk-scaling-webapps-with-node-dot-js)
+- [About the SNCB Leak](https://www.eventbrite.com/e/inscription-cafe-numerique-liege-s03-7-privacy-vs-technology-5225010146), Café Numérique Liège, 23 Janvier 2013. [Slides](https://speakerdeck.com/fredericjacobs/cafe-numerique-liege-23-janvier-2013)
+- [An introduction to RubyMotion](http://www.meetup.com/genevarb/events/98802632/), Geneva Ruby Brigade (Ruby Meetup), February 20, 2013. [Slides](https://speakerdeck.com/fredericjacobs/rubymotion-geneva-dot-rb)
+- Quick Intro about Tor , Fixme Cryptoparty, April 2013. [Slides](https://speakerdeck.com/fredericjacobs/cryptoparty-april-2013-tor)
+- Axolotl, an asynchronous cryptographic protocol with perfect forward secrecy for long-lived sessions,  Dahucon 2014. [Slides](https://speakerdeck.com/fredericjacobs/axolotl-an-asynchronous-cryptographic-protocol-with-perfect-forward-secrecy-for-long-lived-sessions) 
+- Opsec for journalists, lessons learned from the Snowden Leaks, Cryptoparty Fribourg, May 2014.
+- [Usable Cryptography](https://ind.ie/summit/), IndieTech Summit, 4th of July 2014. [Slides](https://speakerdeck.com/fredericjacobs/usable-cryptography)

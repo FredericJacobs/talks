@@ -1,0 +1,494 @@
+* {
+	font-family: 'HelveticaNeueW01-45Ligh', Helvetica, Arial, sans-serif;
+	font-size: 13pt;
+	line-height: 16pt;
+	-webkit-text-size-adjust: none;
+	max-height: 999999px;
+}
+
+a {
+	color: #4fbc24;
+	text-decoration: none;
+	font-size: inherit;
+}
+
+sup {
+	font-size: 75%;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+}
+
+img {
+	border: none;
+}
+
+h1 {
+	font-family:'HelveticaNeueW01-75Bold', Helvetica, Arial, sans-serif;
+	font-size: 22pt;
+	font-weight: normal;
+	margin-bottom: 40px;
+}
+
+h2 {
+	font-family:'HelveticaNeueW01-75Bold', Helvetica, Arial, sans-serif;
+	font-size: 13pt;
+	font-weight: normal;
+	margin-top: 30px;
+}
+
+strong, strong a {
+	font-family: 'HelveticaNeueW01-75Bold', Helvetica, Arial, sans-serif;
+	font-weight: normal;
+	font-size: inherit;
+}
+
+ul li {
+	margin-top: 3px;
+	margin-bottom: 3px;
+}
+
+.faqsection {
+	width: 800px;
+}
+
+.faqsection h2 {
+	font-family: 'HelveticaNeueW01-Thin', Helvetica, Arial, sans-serif;
+	font-size: 18pt;
+	color: #777;
+	margin: 0;
+	padding: 0;
+	margin-bottom: 15px;
+	margin-top: 40px;
+}
+
+.faqitem {
+	border-top: 1px solid #aaa;
+	width: 800px;
+}
+
+.faqitem p, .faqitem li {
+	font-size: 11pt;
+	margin: 1em 0 1em 0;
+}
+
+.faqitem h3 {
+	margin-top: 10px;
+	font-family:'HelveticaNeueW01-75Bold', Helvetica, Arial, sans-serif;
+	font-size: 13pt;
+	font-weight: normal;
+	cursor: pointer;
+}
+
+.faqanswer {
+	display: none;
+	margin-bottom: 40px;
+}
+
+.faqitem.highlight {
+	background: #ffffdd;
+}
+
+.logo {
+	margin-left: 255px;
+	margin-top: 80px;
+}
+
+.appicon {
+	margin-left: 100px;
+	position: absolute;
+	margin-top: 80px;
+}
+
+/*.appicona {*/
+	/*margin-left: 360px;*/
+	/*position: absolute;*/
+	/*margin-top: 83px;*/
+/*}*/
+
+.slogan {
+	margin-left: 100px;
+	margin-top: 20px;
+	
+	font-family: 'HelveticaNeueW01-Thin', Helvetica, Arial, sans-serif;
+	font-size: 24pt;
+	
+	border-bottom: 1px solid #000;
+	padding-bottom: 30px;
+    padding-left: 174px;
+	margin-bottom: 40px;
+	margin-top: 12px;
+	line-height: 28pt;
+}
+
+.madeinswitzerland {
+	font-family:'HelveticaNeueW01-Thin', Helvetica, Arial, sans-serif;
+	font-size: 12pt;
+	
+	margin-top: 100px;
+	margin-bottom: 20px;
+}
+
+.madeinswitzerland img {
+	vertical-align: middle;
+	margin-right: 5px;
+}
+
+.content {
+	width: 1100px;
+	margin-left: 100px;
+}
+
+.nav {
+	margin-left: 100px;
+	margin-bottom: 40px;
+}
+
+.nav a {
+	font-family:'HelveticaNeueW01-65Medi', Helvetica, Arial, sans-serif;
+	text-decoration: none;
+	color: #000;
+	border-bottom: 2px solid #000;
+	padding-bottom: 3px;
+}
+
+.nav li.active a {
+    border-bottom: 2px solid #FFF;
+}
+
+.nav a:hover {
+	color: #4fbc24;
+	border-bottom: 2px solid #4fbc24;
+}
+
+.nav ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+.nav ul li {
+	font-family:'HelveticaNeueW01-65Medi', Helvetica, Arial, sans-serif;
+	display: inline;
+	list-style-type: none;
+	margin-left: 0;
+	margin-right: 60px;
+}
+
+.usp {
+	float: left;
+	margin-top: 35px;
+	margin-bottom: 15px;
+	display: table-cell;
+	vertical-align: middle;
+	width: 350px;
+	margin-left: 50px;
+}
+
+.usp img {
+	float: left;
+}
+
+.usptitle {
+	font-size: 20pt;
+	margin-bottom: 5px;
+	margin-left: 85px;
+	line-height: 22pt;
+	margin-top: -4px;
+}
+
+.uspexpl {
+	font-size: 12pt;
+	color: #888;
+	margin-left: 85px;
+}
+
+.uspleft {
+	clear: left;
+	margin-left: 0;
+}
+
+#preview_wrapper {
+	float: right;
+	width: 361px;
+	margin-left: 10px;
+	margin-top: -26px;
+	margin-right: -28px;
+}
+
+#preview_switch div {
+	color: #aaa;
+	font-size: 0.8em;
+	text-align: center;
+	margin-bottom: 4px;
+}
+
+#iphone_preview2 {
+	margin-left: 23px;
+	width: 310px;
+	height: 682px;
+	background-image: url(../images/iphone_preview_bg.png);
+	background-repeat: no-repeat;
+}
+
+#iphone5_preview {
+	margin-left: 23px;
+	width: 310px;
+	height: 666px;
+	background-image: url(../images/iphone5_preview_bg.png);
+	background-repeat: no-repeat;
+}
+
+#android_preview2 {
+	width: 361px;
+	height: 588px;
+	background-image: url(../images/android_preview_bg.png);
+	background-repeat: no-repeat;
+}
+
+#iphone_preview {
+	float: right;
+	margin-left: 40px;
+	margin-top: 10px;
+	width: 310px;
+	height: 682px;
+	background-image: url(../images/iphone_preview_bg.png);
+	background-repeat: no-repeat;
+}
+
+#android_preview {
+	float: right;
+	margin-left: 10px;
+	margin-top: 10px;
+	margin-right: -28px;
+	width: 361px;
+	height: 588px;
+	background-image: url(../images/android_preview_bg.png);
+	background-repeat: no-repeat;
+}
+
+.slides_container {
+	width: 248px;
+	height: 372px;
+	position: relative;
+	left: 32px;
+	top: 106px;
+}
+.slides_container div {
+	width: 248px;
+	height: 372px;
+	display: block;
+}
+
+.slides5_container {
+	width: 250px;
+	height: 444px;
+	position: relative;
+	left: 32px;
+	top: 99px;
+}
+.slides5_container div {
+	width: 250px;
+	height: 444px;
+	display: block;
+}
+.slides5_container img {
+	width: 250px;
+	height: 444px;
+}
+
+.aslides_container {
+	width: 268px;
+	height: 448px;
+	position: relative;
+	left: 46px;
+	top: 65px;
+}
+.aslides_container div {
+	width: 268px;
+	height: 448px;
+	display: block;
+}
+
+.pagination {
+	position: relative;
+	margin:26px auto 0;
+	width:108px;
+	left: 0;
+	top: 196px;
+}
+
+.pagination li {
+	float:left;
+	margin:0 3px;
+	list-style:none;
+}
+
+.pagination li a {
+	display:block;
+	width:12px;
+	height:0;
+	padding-top:12px;
+	background-image:url(../images/pagination.png);
+	background-position:0 0;
+	float:left;
+	overflow:hidden;
+}
+
+.pagination li.current a {
+	background-position:0 -12px;
+}
+
+#android_preview2 .pagination {
+	top: 120px;
+	left: -2px;
+}
+
+#iphone5_preview .pagination {
+	top: 176px;
+}
+
+.availablefor {
+	font-size: 11pt;
+	color: #888;
+}
+
+p.footnote {
+	font-family:'HelveticaNeueW02-55Roma', Helvetica, Arial, sans-serif;
+	font-size: 10pt;
+	color: #999;
+}
+
+.error {
+	color: #cc0000;
+	font-family:'HelveticaNeueW01-75Bold', Helvetica, Arial, sans-serif;
+	margin: 1em 0;
+}
+
+input, textarea {
+	border-radius: 7px;
+	border: 1px solid #aaa;
+	padding: 5px;
+	margin-bottom: 5px;
+}
+
+input[type=submit] {
+	font-size: 14pt;
+	font-family:'HelveticaNeueW01-75Bold', Helvetica, Arial, sans-serif;
+	padding: 6px 20px;
+	margin-top: 20px;
+	background: #fff;
+}
+
+input[type=submit]:active {
+	background: #ccc;
+}
+
+.langsel {
+	float: right;
+	margin-right: 20px;
+	margin-top: 20px;
+	font-size: 11pt;
+	color: #999;
+	font-family:'HelveticaNeueW02-55Roma', Helvetica, Arial, sans-serif;
+}
+
+.langsel a {
+	font-family:'HelveticaNeueW02-55Roma', Helvetica, Arial, sans-serif;
+}
+
+.facetwit {
+	float: left;
+	font-size: 11pt;
+	margin-left: 30px;
+	margin-top: 8px;
+}
+
+ol {
+	width: 80%;
+}
+
+.smalllinks, .smalllinks a {
+	color: #999;
+	font-size: 11pt;
+	margin-bottom: 10px;
+}
+
+.gray {
+	font-size: inherit;
+	color: #777;
+}
+
+.bold {
+	font-family: 'HelveticaNeueW01-75Bold', Helvetica, Arial, sans-serif;
+}
+
+table.dltbl {
+	border-spacing:0
+}
+
+table.dltbl th {
+	font-family: 'HelveticaNeueW01-75Bold', Helvetica, Arial, sans-serif;
+	background: #ddd;
+	font-weight: normal;
+	font-size: 12pt;
+	padding: 0.5em;
+}
+
+table.dltbl th:first-child {
+	border-top-left-radius: 10px;
+	border: 1px solid #e0e0e0;
+}
+
+table.dltbl th:last-child {
+	border-top-right-radius: 10px;
+	border: 1px solid #e0e0e0;
+}
+
+table.dltbl td:first-child {
+	border-bottom-left-radius: 10px;
+	border-right: none;
+}
+
+table.dltbl td:last-child {
+	border-bottom-right-radius: 10px;
+}
+
+table.dltbl td {
+	border: 1px solid #e0e0e0;
+	border-top: none;
+	text-align: center;
+	padding: 1em;
+	vertical-align: top;
+}
+
+table.dltbl td div {
+	font-size: 11pt;
+	color: #777;
+}
+
+input#search {
+	padding: 10px;
+	padding-left: 40px;
+	width: 300px;
+	border: 1px solid #ddd;
+	font-size: 14pt;
+	color: #444;
+	background-image: url('/images/search.png');
+	background-repeat:no-repeat;
+	background-position:14px center;
+	outline: 0;
+}
+
+/*
+font-family:'Helvetica W01 Bold';
+font-family:'HelveticaNeueW01-UltLt';
+font-family:'HelveticaNeueW01-Thin';
+font-family:'HelveticaNeueW01-45Ligh';
+font-family:'HelveticaNeueW02-55Roma';
+font-family:'HelveticaNeueW01-65Medi';
+font-family:'HelveticaNeueW01-75Bold';
+font-family:'HelveticaNeueW01-85Heav';
+*/

@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<!-- saved from url=(0030)https://threema.ch/en/faq.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	<meta name="apple-itunes-app" content="app-id=578665578">
+	<meta name="viewport" content="width=1300">
+	<link rel="shortcut icon" href="https://threema.ch/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="https://threema.ch/favicon.ico" type="image/x-icon">
+
+	<link type="text/css" rel="stylesheet" href="./Threema - Seriously secure mobile messaging_files/0a1445d1-b326-4240-b272-f591ca9ed8e2.css">
+
+	<link rel="stylesheet" href="./Threema - Seriously secure mobile messaging_files/master.css" type="text/css" media="screen" title="no title" charset="utf-8">
+	<title>Threema - Seriously secure mobile messaging</title>
+	<script src="./Threema - Seriously secure mobile messaging_files/jquery-1.8.3.min.js"></script><style type="text/css"></style>
+	<script src="./Threema - Seriously secure mobile messaging_files/placeholders.jquery.min.js"></script>
+    <script>
+        $(function(){
+            if(document && document.location) {
+                var path = document.location.pathname;
+                if(path != null && path.length > 0) {
+                    $('.nav:first ul:first li').each(function(){
+                        var j = jQuery(this);
+                        if(j.find('a[href="' + path + '"]').length > 0) {
+                            j.addClass('active');
+                        }
+                    })
+                }
+            }});
+    </script>
+</head>
+<body style="">
+	
+	<div class="langsel">EN | <a href="https://threema.ch/de/faq.html">DE</a></div>
+	
+	<img class="appicon" src="./Threema - Seriously secure mobile messaging_files/appicon128.png" width="128" height="128" alt="app icon iOS">
+	<a href="https://threema.ch/"><img class="logo" src="./Threema - Seriously secure mobile messaging_files/logo.png" alt="Threema" width="410" height="74"></a>
+
+<div class="slogan">
+	Seriously secure mobile messaging.
+</div>
+
+<div class="nav">
+	<ul>
+		<li><a href="https://threema.ch/en/index.html">Intro</a></li>
+        <li><a href="https://threema.ch/en/howtouse.html">How to use</a></li>
+        <li><a href="https://threema.ch/en/whatsnew.html">What's New</a></li>
+		<li class="active"><a href="./Threema - Seriously secure mobile messaging_files/Threema - Seriously secure mobile messaging.html">FAQ</a></li>
+		<li><a href="https://threema.ch/en/download.html">Download</a></li>
+		<li><a href="https://threema.ch/en/support">Support</a></li>
+	</ul>
+</div>
+
+<div class="content">
+
+
+
+<script src="./Threema - Seriously secure mobile messaging_files/faq.js"></script>
+
+<h1>Frequently asked questions</h1>
+
+<input type="text" id="search" name="search" size="30" onkeyup="searchChanged()">
+
+<div class="faqsection">
+	
+<h2>Troubleshooting</h2>
+
+<div id="contacts_empty" class="faqitem">
+	<h3>Why is my contact list empty?</h3>
+	
+	<div class="faqanswer">
+		<p>Threema only shows those contacts that have already installed Threema. The list
+			is updated about every 24 hours; therefore it can take a while before new Threema users
+			appear on your list.</p>
+		
+		<p>You can force an immediate update by pulling down and releasing the contact list.</p>1
+			
+		<p>If a person doesn't appear even though you know that they have installed Threema, it's
+			usually because the information in your system address book doesn't match the e-mail
+			address or phone number that they have linked to their Threema ID.</p>
+		
+		<p>For the synchronization to work, it needs to be enabled in Threema (Settings &gt; Privacy),
+			and on iOS Threema also needs access to the contacts (iPhone Settings &gt; Privacy &gt; Contacts &gt; enable Threema).</p>
+	</div>
+</div>
+
+<div id="nosms" class="faqitem">
+	<h3>I didn't receive my verification email or SMS!</h3>
+	
+	<div class="faqanswer">
+		<p>Emails may get stuck in spam filters, so please check your spam folder, and please
+		   be patient. Some ISPs use greylisting, which causes emails from new senders to be
+		   delayed by up to an hour.</p>
+		
+		<p>You can try again (possibly using a different e-mail address) by going back into
+		   the "Linked Email" dialog, clearing the address, and saving. This will reset the status
+		   and you will be able to try again.</p>
+		
+		<p>SMS: while we make a best effort to deliver verification text messages to all countries, unfortunately
+		   sometimes messages get lost. This can be temporary, or caused by filtering of messages
+		   from other countries by your carrier. Threema offers you the option to receive the code
+		   via a phone call. On iOS, simply go back into the "Linked number" dialog and choose the call option.
+		   On Android, a button to trigger a phone call will appear automatically after the SMS reception timeout
+		   has elapsed (approx. one minute).
+		   Please note that we cannot call certain countries/numbers.</p>
+	</div>
+</div>
+
+<div id="nopush" class="faqitem">
+	<h3>Why am I not receiving any push notifications or experiencing delays?</h3>
+	
+	<div class="faqanswer">
+		<ul>
+			<li>
+				<p><strong>iOS:</strong></p>
+				
+				<p>Please perform the following steps to troubleshoot push notifications on iOS:</p>
+
+				<ul>
+					<li>Go to iPhone Settings &gt; Notifications &gt; Threema. Ensure that badges, alerts and sounds are turned on.</li>
+					<li>Turn off your phone.</li>
+					<li>Turn your phone back on.</li>
+					<li>Launch Threema so it can re-negotiate push notifications with the server.</li>
+					<li>Push notifications should now be working.</li>
+				</ul>
+
+				<p>Also make sure you're not connected to a Wi-Fi network that blocks the ports that Apple
+					uses for push notifications (try turning off Wi-Fi to see if this makes push notifications work).</p>
+
+				<p>If you still cannot receive push notifications even after following the steps above, try deleting and reinstalling
+					the app from the App Store as a last resort (you will not be charged again). By reinstalling, the so-called push token that the
+					iOS system generates for the app is recreated. Your Threema ID will be retained, but the contacts and any saved messages in the app will be lost
+					(don't forget to re-enable contact synchronization in Settings &gt; Privacy after reinstallation if desired).</p>
+			</li>
+			
+			<li>
+				<p><strong>Android:</strong></p>
+				
+				<p>Threema uses Google Cloud Messaging (GCM) so that it does not have to stay connected to the Threema server in the background all the time (which would
+					cause additional battery drain). After one minute in the background, the connection to the Threema server is disconnected, and the server informs the app
+					via GCM when new messages arrive.</p>
+				
+				<p>If notifications about new messages are often delayed or do not arrive at all (i.e. you only receive them when you open the app manually), you
+					can try the following:</p>
+				
+				<ul>
+					<li>Ensure that your Internet access allows TCP ports 5228-5230 for GCM (firewall etc.).</li>
+					<li>Reboot your phone.</li>
+					<li>Go to Settings &gt; Apps &gt; Threema and check that "Show notifications" is enabled.</li>
+					<li>Go to Settings &gt; Data usage, press the menu button and ensure that "Restrict background data" is disabled.</li>
+					<li>Start the Google Hangouts app, press the menu button, choose "Settings" and then "Sign out". Then start the Hangouts app again.</li>
+					<li>Reset the push token in Threema (Settings &gt; Troubleshooting).</li>
+					<li>Go to Settings &gt; Wi-Fi &gt; Advanced and ensure that "Keep Wi-Fi on during sleep" is set to "Always". Alternatively, you can also try the setting "Never".</li>
+					<li>Uninstall all task killer apps.</li>
+					<li>If you have a software firewall installed on your phone, deactivate it to see if it interferes with the push connection.</li>
+					<li>If the above steps do not help: enable polling in Threema (Settings &gt; Troubleshooting).</li>
+				</ul>
+				
+				<p>Delays due to NAT/firewall timeouts (can also affect 3G depending on the provider) can be fixed using the
+				<a href="https://play.google.com/store/apps/details?id=com.andqlimax.pushfixer">Push Notification Fixer</a> (rooted phones only).</p>
+			</li>
+		</ul>
+	</div>
+</div>
+
+<div id="no_sync_after_reboot" class="faqitem">
+	<h3>Why does the synchronisation not work anymore after rebooting my phone?</h3>
+	
+	<div class="faqanswer">
+		<p><strong>This problem only affects the Android version of Threema under specific versions of the Android operating system.</strong></p>
+		
+		<p>Some Android versions (Jelly Bean 4.1.1 ist usually affected, and on some Samsung devices even more recent versions) have a bug that affects paid apps. The sync account is lost
+			after rebooting the phone; consequently, the contact synchronization does not work anymore. We're currently searching for a
+			reasonable workaround and recommend all users to update to a newer operating system version if possible.</p>
+		
+		<p>As a temporary solution, you can turn the synchronization off and on again in the Threema settings. This will cause the account
+			to be recreated and the synchronization will work again until the next phone reboot.</p>
+			
+		<p>More information on this Android bug can be found <a href="http://code.google.com/p/android/issues/detail?id=34880">here</a>.</p>
+	</div>
+</div>
+
+<div id="lost_pass" class="faqitem">
+	<h3>I forgot my PIN/passphrase/lock code. What can I do now?</h3>
+	
+	<div class="faqanswer">
+		<p>Lost passphrases or lock codes cannot be recovered. However, you can reset the app and then set
+			it up again. You will lose all saved messages and your ID (unless you have a backup).</p>
+		
+		<p><strong>Android:</strong> delete the app data by going to Settings &gt; Apps &gt; Threema &gt; Clear data.</p>
+		
+		<p><strong>iOS:</strong> enter a wrong code 10 times. A button will appear in the upper left-hand corner
+			that allows you to reset the app data.</p>
+	</div>
+</div>
+
+</div>
+
+
+<div class="faqsection">
+	
+<h2>User interface</h2>
+
+
+<div id="levels_expl" class="faqitem">
+	<h3>What do the verification levels (dots) mean?</h3>
+	
+	<div class="faqanswer">
+		<ul>
+			<li><img src="./Threema - Seriously secure mobile messaging_files/verification_red.png" width="49" height="11" style="margin-right: 10px" alt="Level 1"><strong>Level 1</strong> (red): the ID and public key have been
+            obtained from the server because you received a message
+            from this contact for the first time. No matching contact
+            was found in your address book (by phone number or
+            e-mail), and therefore you cannot be sure that the person
+            is who they claim to be in their messages.</li>
+			
+			<li><img src="./Threema - Seriously secure mobile messaging_files/verification_orange.png" width="49" height="11" style="margin-right: 10px" alt="Level 2"><strong>Level 2</strong> (orange): the ID has been matched with a
+            contact in your address book (by phone number or e-mail).
+            Since the server verifies phone numbers and e-mail
+            addresses, you can be reasonably sure that the person is
+            who they claim to be.</li>
+			
+			<li><img src="./Threema - Seriously secure mobile messaging_files/verification_green.png" width="49" height="11" style="margin-right: 10px" alt="Level 3"><strong>Level 3</strong> (green): you have personally verified the
+            ID and public key of the person by scanning their 2D
+            code. Assuming their device has not been hijacked, you can
+            be very sure that messages from this contact were really
+            written by the person that they indicate.</li>
+		</ul>
+		
+		<p>The verification levels don't change anything in the encryption strength (it is always
+			the same high-grade ECC based encryption), but they are a measure of the
+			trust that the public keys saved for your contacts really belong to them. Having the
+			wrong public keys leaves you open to Man-in-the-Middle (MITM) attacks, therefore it is
+			important to verify the keys.</p>
+	</div>
+</div>
+
+
+<div id="connstripe_expl" class="faqitem">
+	<h3>What does the color stripe mean?</h3>
+	
+	<div class="faqanswer">
+		<p>The color stripe (below the navigation bar) shows the connection status at a glance.</p>
+		
+		<ul>
+			<li>Red: Threema is currently not connected to the server. This is usually due to
+				problems with the Internet connectivity of your phone (e.g. when you have no 3G
+				reception, or are connected to a broken Wi-Fi network or to a Wi-Fi hotspot
+				that requires login). Threema will keep trying every 10 seconds.</li>
+			<li>Orange: Threema is connecting to the server. A response has been received (so
+				the connection is working), but the login process has not completed yet. If this
+				appears for more than a few seconds, it's usually due to a very bad (slow, lossy)
+				Internet connection.</li>
+			<li>Green: Threema is connected to the server. New messages will appear almost immediately.</li>
+		</ul>
+	</div>
+</div>
+
+
+<div id="status_expl" class="faqitem">
+	<h3>What do the message status symbols mean?</h3>
+	
+	<div class="faqanswer">		
+		<ul>
+			<li><img src="./Threema - Seriously secure mobile messaging_files/MessageStatus_sending.png" alt="message sending" style="margin-right: 4px; margin-bottom: -3px; opacity: 0.4" width="20" height="18"> <strong>Message sending</strong><br>
+				The message is being sent to the server. If this status appears for more than a few seconds,
+				there may be connection problems. The message will stay in the queue and will be sent
+				as soon as the connection is up (iOS: only when the app is open).</li>
+			<li><img src="./Threema - Seriously secure mobile messaging_files/MessageStatus_sent.png" alt="message sent" style="margin-right: 4px; margin-bottom: -3px" width="20" height="18"> <strong>Message sent</strong><br>
+				The message has been sent to the server and is awaiting delivery to the recipient. A push
+				notification has also been sent if necessary.</li>
+			<li><img src="./Threema - Seriously secure mobile messaging_files/MessageStatus_delivered.png" alt="message delivered" style="margin-right: 4px; margin-bottom: -3px" width="20" height="18"> <strong>Message delivered</strong><br>
+				The message has been received by the recipient's device, but has not yet been read (i.e. not
+				fully displayed on the screen because the user is in another conversation or menu), or the recipient has turned off read receipts.
+				For technical resons, iOS recipients will only indicate this status after they have opened the app
+				(and not already when the push notification is shown), and only if they have enabled read receipts.</li>
+			<li><img src="./Threema - Seriously secure mobile messaging_files/MessageStatus_read.png" alt="message read" style="margin-right: 4px; margin-bottom: -3px" width="20" height="18"> <strong>Message read</strong><br>
+				The message has been read by the recipient. Note that if the recipient has disabled read receipts,
+				you will not see this status.</li>
+			<li><img src="./Threema - Seriously secure mobile messaging_files/MessageStatus_sendfailed.png" alt="send failed" style="margin-right: 4px; margin-bottom: -3px" width="20" height="18"> <strong>Send failed</strong><br>
+				The message could not be sent. This can happen for example when an image upload is interrupted.
+				You can long-tap the message and choose “Try again” (iOS), or “Forward” and then the same recipient (Android).</li>
+			<li><img src="./Threema - Seriously secure mobile messaging_files/MessageStatus_userack.png" alt="user acknowledgement" style="margin-right: 4px; margin-bottom: -3px" width="20" height="18"> <strong>User acknowledgment</strong><br>
+				The recipient has manually acknowledged the message (by long-tapping it and choosing “Acknowledge”),
+				implying that he/she has read and understood it and agrees to the contents.</li>
+		</ul>
+	</div>
+</div>
+
+
+<div id="profilepic" class="faqitem">
+	<h3>Where can I set my profile picture?</h3>
+	
+	<div class="faqanswer">		
+		<p>Threema does not store any profile pictures, so there is no way to change the picture
+		   that appears to other users (as you may be used to from other messengers).
+		   When another user adds you to their contact list and links your ID to an address book
+		   entry, Threema automatically uses the contact photo from their address book. Note
+		   that IDs and address book entries are linked automatically when synchronizing contacts.</p>
+		
+		<p>In the Android version, you can change the picture that is shown to you for your own
+			messages in the chat by changing the "Me" contact in the "People/Contacts" app.</p>
+	</div>
+</div>
+
+
+<div id="emojis" class="faqitem">
+	<h3>How can I send smilies/emoticons?</h3>
+	
+	<div class="faqanswer">		
+		<ul>
+			<li><strong>iOS:</strong> Unicode emoticons are handled by the system. Go to Settings &gt;
+				General &gt; Keyboard &gt; Keyboards and activate the "Emoji" keyboard. After that, you can
+				switch to this keyboard while you're typing by tapping the globe symbol.</li>
+				
+			<li><strong>Android:</strong> emoji menu next to the
+				input field. Incoming messages with common Unicode emojis will automatically be displayed
+				correctly (independent of installed system fonts). Third party emoji keyboards are not necessary.
+			</li>
+		</ul>
+	</div>
+</div>
+
+<div id="newphone" class="faqitem">
+	<h3>I've got a new phone — how do I move my ID/messages/contacts?</h3>
+	
+	<div class="faqanswer">
+		<ul>
+			<li>
+				<p><strong>ID:</strong> You can create a backup of your ID within the app, and we highly recommend that
+				   you do so even if you don't plan on buying a new phone, as otherwise your ID
+				   will be lost forever if you lose your phone or if it gets damaged.</p>
+		
+				<p>Simply go to the “My ID” tab in the app, scroll down, select “Backup” and
+				   choose a password. The private ID data (i.e. your private key) will be
+				   encrypted and displayed in text format and as a QR code. You can then copy &amp; paste the backup text to a safe
+				   location, or scan the QR code using the new phone.</p>
+		
+				<p>Note that if you perform the backup multiple times, the output will look different
+				   each time; that is because some random data is used in the password hashing process.</p>
+		
+				<p>To restore, tap the “Restore” button on the screen where it prompts you to move
+				   your finger to generate random data.</p>
+			</li>
+			
+			<li>
+				<p><strong>Messages/Contacts:</strong> the procedure to follow depends on whether you're using the iOS or Android version.
+					
+					</p><ul>
+						<li><strong>iOS:</strong> messages and contacts are included in the iTunes/iCloud backup. If you restore your new phone
+							from a backup of the old phone, you will keep all messages and contacts. Important: the ID needs to be backed up 
+							separately (see above).</li>
+						
+						<li><strong>Android:</strong> messages and contacts can be saved using the “Backup Data” option at the bottom of the “My ID” tab.
+							A password protected ZIP file will be created in the path Threema/Backups; you can copy this file to the new device (in the same path).
+							The restore process can be started using the “Restore”
+							button on the initial setup screen (where it prompts you to move
+							   your finger to generate random data).</li>
+					</ul>
+				<p></p>
+				
+				<p>Messages and contacts cannot be moved across platforms (iOS/Android).</p>
+			</li>
+		</ul>
+	</div>
+</div>
+
+<div id="chatexport" class="faqitem">
+	<h3>How can I export my chat history?</h3>
+	
+	<div class="faqanswer">
+		<ul>
+			<li><strong>iOS:</strong> use the "Email Conversation" button in contact details to send the chat history as a text file via email
+				(e.g. to your own address). Group chats can be exported in the chat details (scroll to the top of the chat and tap "Info").</li>
+				
+			<li><strong>Android:</strong> long-tap a conversation in the list and then tap the "Share" button. You will be able to choose from
+				the installed apps to save or send the chat history in text format.</li>
+		</ul>
+	</div>
+</div>
+
+<div id="group_adddel" class="faqitem">
+	<h3>Can members be added or deleted from an existing group?</h3>
+	
+	<div class="faqanswer">
+		<p>No – members cannot be added to or removed from an existing group
+			(any group participant can leave the group by deleting it on his device though). To add more members,
+			a new group must be created.</p>
+	</div>
+</div>
+
+<div id="group_whygray" class="faqitem">
+	<h3>Why are some contacts grayed out when choosing group members?</h3>
+	
+	<div class="faqanswer">
+		<p>Only contacts that are running a group chat capable version of Threema (and who have started it at least
+			once since the update) can be selected.</p>
+	</div>
+</div>
+
+
+</div>
+
+
+<div class="faqsection">
+	
+<h2>Android specific</h2>
+
+<div id="android_version" class="faqitem">
+	<h3>Which Android version is required?</h3>
+	
+	<div class="faqanswer">
+		<p>Threema runs on Android 4.0 (Ice Cream Sandwich) and up. At this time, there are no plans for compatibility
+			with earlier Android versions. The effort required is too high, especially given the slowly but steadily dwindling
+			user base on earlier versions, and the fact that we don't want to compromise usability for users with 4.0+.</p>
+	</div>
+</div>
+
+<div id="android_permissions" class="faqitem">
+	<h3>Which permissions are used under Android, and for what purpose?</h3>
+	
+	<div class="faqanswer">
+		<p>Here is an explanation of the most important permissions that Threema for Android requires:</p>
+		
+		<ul>
+			<li><strong>Read/write contacts</strong><br>
+				Required for address book synchronization. If the synchronization is off,
+				contact data is not accessed.
+			</li>
+
+			<li><strong>Receive text messages</strong><br>
+				Used for mobile phone number linking (to automatically receive the verification SMS
+				and extract the code) and only active while the status bar for the phone number linking
+				is being displayed.
+			</li>
+
+			<li><strong>Location</strong><br>
+				Used for the "Send location" feature.
+			</li>
+
+			<li><strong>Accounts</strong><br>
+				Used for contact synchronization resp. integration into the account management of Android.
+			</li>
+
+			<li><strong>Storage</strong><br>
+				Used for saving media data (photos, videos).
+			</li>
+		</ul>
+	</div>
+</div>
+
+<div id="android_unlocked" class="faqitem">
+	<h3>What does the message "Master key is unlocked" mean?</h3>
+	
+	<div class="faqanswer">
+		<p>This notification is shown if you're using the Android version of Threema and have set a passphrase
+			on your master key. In order to prevent the operating system from terminating the Threema process
+			(which would cause the unlocked master key to be lost as it is only held in RAM, necessitating manual re-entry of the passphrase),
+			the app needs to show a notification. This notification has no other purpose and is only required
+			because of the aforementioned limitation of Android.</p>
+		
+		<p>Please note: in times of extreme memory shortage, Android will even terminate processes that show a 
+			persistent notification. In that case, it is possible that you are prompted for the master key passphrase again.
+			This is caused by Android; Threema has no influence on this process termination.</p>
+	</div>
+</div>
+
+<div id="android_howtolock" class="faqitem">
+	<h3>Where do I find the master key lock button?</h3>
+	
+	<div class="faqanswer">
+		<p>In version 1.2, a new PIN lock feature has been introduced (can be enabled in settings),
+			which is much better suited to use as a user interface lock, and easier to use than the
+			master key passphrase. The master key passphrase is therefore now only intended as protection
+			against offline attacks, for which a one-time prompt after a device reboot is sufficient.</p>
+
+		<p>If you set up a PIN, the lock button will reappear in the action bar and can be used for manually activating the PIN lock.</p>
+	</div>
+</div>
+
+<div id="android_smscode" class="faqitem">
+	<h3>I have received an SMS with my code – where do I enter it?</h3>
+	
+	<div class="faqanswer">
+		<p>On Android, Threema normally receives and processes the SMS with the code automatically.
+			If you get an SMS with a link (which is designed for iOS users) and code for manual entry,
+			that is usually due to an alternative SMS app like e.g. GoSMS that catches the SMS before Threema can process it.</p>
+		
+		<p>You can enter the code that you received manually by tapping on the keypad icon next to "Mobile number" on the
+			third tab in Threema.</p>
+	</div>
+</div>
+
+<div id="android_delays" class="faqitem">
+	<h3>Why are incoming messages sometimes delayed, or only arrive if I open the app manually?</h3>
+		
+	<div class="faqanswer">
+		<p>This is usually caused by problems with push notifications. Please see the answer to
+			"<a href="https://threema.ch/en/faq.html#nopush">Why am I not receiving any push notifications?</a>" above.</p>
+	</div>
+</div>
+
+<div id="android_delcontact" class="faqitem">
+	<h3>How do I delete a contact?</h3>
+		
+	<div class="faqanswer">
+		<p>Go to the detail view of the contact that you want to delete, and then tap the trash icon
+			(or, depending on the model, choose "Delete" from the menu).</p>
+	</div>
+</div>
+
+<div id="android_delchat" class="faqitem">
+	<h3>How do I delete a chat?</h3>
+		
+	<div class="faqanswer">
+		<p>Simply long-tap the desired chat in the list of chats, and then choose "Delete" (or the
+			trash icon, depending on screen size).</p>
+	</div>
+</div>
+
+<div id="android_save_picture" class="faqitem">
+	<h3>How do I save received photos/videos?</h3>
+		
+	<div class="faqanswer">
+		<p>Long-tap the desired photo/video in the chat, and then choose "Save" (floppy disk icon). The saved photo/video can be found in
+			the directory "Threema/Threema Pictures" (or "Threema Videos"). </p>
+	</div>
+</div>
+
+<div id="android_contact_photo" class="faqitem">
+	<h3>How can I assign a photo to a contact?</h3>
+		
+	<div class="faqanswer">
+		<p>Threema reads contact photos from the device's contact store. If you assign a photo to a contact in the "People/Contacts" app,
+			this photo will automatically be used by Threema (on some devices, a reboot may be required for this to happen).</p>
+			
+		<p>For Threema contacts that could not be automatically connected to an address book entry – e.g. because the respective
+			person has not linked their Threema ID with a phone number or email address – this connection can be made manually
+			through the "People/Contacts" app (menu item "Merge contacts").</p>
+	</div>
+</div>
+
+<div id="android_contact_name" class="faqitem">
+	<h3>How can I change/set the name of a contact?</h3>
+		
+	<div class="faqanswer">
+		<p>If the contact has been synchronized with the device's address book, simply change the name in the "People/Contacts" app.
+			After the next synchronization in Threema (can be forced by pulling down and releasing the contact list), the new
+			name will be used.</p>
+			
+		<p>The name of unsynchronized contacts can be changed in Threema by going into contact details (pencil icon).</p>
+	</div>
+</div>
+
+<div id="android_nogoogle" class="faqitem">
+	<h3>Can I buy/use Threema without a Google Account?</h3>
+		
+	<div class="faqanswer">
+		<p>Yes, that is possible if you buy Threema from <a href="https://shop.threema.ch/">our own shop</a>.</p>
+		
+		<p>Please note: no Google Account is necessary, but Google Apps need to be installed on the device because
+			GCM is used for push notifications. Google Apps are always included in original manufacturer firmwares;
+			they may have to be installed separately in custom ROMs (CyanogenMod etc.).</p>
+	</div>
+</div>
+
+<div id="android_gcminfo" class="faqitem">
+	<h3>What kind of data is transmitted via Google Cloud Messaging (GCM)?</h3>
+		
+	<div class="faqanswer">
+		<p>Threema uses Google Cloud Messaging only to inform the app about the fact that there are new messages while it
+			is in the background. No details about the messages are sent via GCM (the GCM payload is empty).</p>
+	</div>
+</div>
+
+</div>
+
+
+<div class="faqsection">
+	
+<h2>Security</h2>
+
+<div id="why_secure" class="faqitem">
+	<h3>What makes Threema secure?</h3>
+
+	<div class="faqanswer" style="display: block;">
+		<p>Threema uses state-of-the-art asymmetric cryptography<sup>1</sup> to protect
+		messages between sender and receiver, as well as the communication between
+		the app and the servers.</p>
+		
+		<p>There are two layers of encryption: the end-to-end layer between the
+			conversation participants, and an additional layer to protect against
+			eavesdropping of the connection between the app and the servers. The latter
+			is necessary to ensure that an adversary who captures network packets (e.g. on a public
+			wireless network) cannot even learn who is logging in and sending a message to whom.</p>
+		
+		<p>All message encryption and decryption happens directly on the device,
+			and the user has control over the key exchange. This guarantees that no
+			third party — not even the server operators — can decrypt the content
+			of the messages.</p>
+			
+		<p>There is a validation log feature in the app that can be used for independent
+			verification of the end-to-end encryption. See <a href="https://threema.ch/validation">here</a>
+			for details.</p>
+
+		<p class="footnote"><sup>1</sup> Specifically, it uses Elliptic Curve Cryptography (ECC) with the <a href="http://nacl.cr.yp.to/">NaCl
+		Cryptography Library</a>. The advantages of ECC over traditional RSA include higher performance and smaller message sizes.
+			For more information on the encryption algorithms used in Threema, see
+			<a href="http://cr.yp.to/highspeed/naclcrypto-20090310.pdf">Cryptography in NaCl</a>.</p>
+	</div>
+</div>
+
+<div id="crypto_strength" class="faqitem">
+	<h3>What is the strength of the encryption?</h3>
+
+	<div class="faqanswer" style="display: block;">
+		<p>The asymmetric ECC based encryption used by Threema has a strength of 255 bits. According
+		to a <a href="http://csrc.nist.gov/publications/nistpubs/800-57/sp800-57_part1_rev3_general.pdf">NIST estimate</a>
+		(page 64), this corresponds at least with the strength provided by 2048
+		bit RSA. <a href="http://en.wikipedia.org/wiki/ECDH">ECDH</a> on <a href="http://en.wikipedia.org/wiki/Curve25519">Curve25519</a> is used in conjunction with a hash function and a random nonce to derive a unique 256 bit symmetric key for each
+		message, and the stream cipher <a href="http://en.wikipedia.org/wiki/Salsa20">XSalsa20</a> is then used to encrypt the
+		message. A 128 bit message authentication code (MAC) is also added to each message
+			to detect manipulations/forgeries.</p>
+		
+		<p>For more information on the encryption algorithms used in Threema, see
+			<a href="http://cr.yp.to/highspeed/naclcrypto-20090310.pdf">Cryptography in NaCl</a>.</p>
+
+		<p>Threema adds a random amount of padding to each message to thwart
+        attempts to guess the content of a message by looking at the amount of
+        data (note that image messages are of course still several orders of
+        magnitude larger than text messages).</p>
+	</div>
+</div>
+
+<div id="crypto_authorities" class="faqitem">
+	<h3>Could you decrypt my messages, for example if you were required to by law enforcement?</h3>
+	
+	<div class="faqanswer" style="display: block;">
+		<p>No, that is impossible, as we don't have the secret keys of
+		our users (your secret key never leaves your device). Our servers do
+		need to know who is sending a message to whom, so that they can route
+		it to the correct recipient, but they do not log this information, and
+		cannot decrypt the message's content.</p>
+	</div>
+</div>
+
+<div id="crypto_differences" class="faqitem">
+	<h3>What separates Threema from other messengers with encryption?</h3>
+	
+	<div class="faqanswer" style="display: block;">
+		<p>Many manufacturers of messengers claim that their product encrypts the messages that users exchange. However, with most of them the server operator
+			can still read the content of the messages due to the following reasons:</p>
+		
+		<ul>
+			<li><strong>Transport encryption only:</strong> usually only the connection between the mobile device
+				and the server is encrypted, e.g. using SSL. While this means that messages cannot be intercepted
+				while in transit over the network (a common problem in public wireless LAN hotspots), they are in 
+				unencrypted form again once they reach the server.<br>
+				<span class="gray bold">Common examples: SMS, WhatsApp<sup>®</sup></span></li>
+			
+			<li><strong>End-to-end encryption without key verification by user:</strong> in this case, the manufacturer
+				claims that there is end-to-end encryption, but due to missing user interface functions, the user has no
+				way to verify that another contact's public key really matches with the private key that is only known
+				to that contact. Therefore it is easy for the operator to perform a MITM attack by manipulating the
+				automatic key exchange without this being noticed. Subsequently, he's able to decrypt and even forge exchanged messages.<br>
+				<span class="gray bold">Common example: iMessage<sup>®</sup></span></li>
+		</ul>
+		
+		<p>Threema uses end-to-end encryption and enables users to verify the public keys of their conversation partners offline.
+		   Of course there is also a separate transport encryption layer to protect the header information 
+		   (= to whom should the message be delivered) in transit over the Internet.</p>
+	</div>
+</div>
+
+<div id="crypto_mitm" class="faqitem">
+	<h3>Is Threema secure against Man-in-the-Middle (MITM) attacks?</h3>
+	
+	<div class="faqanswer" style="display: block;">
+		<p>Nobody can spoof a message that appears to come from
+        somebody else's ID. However, anyone can send you a
+        message and claim to be somebody else in writing, so you need
+        to verify through a secure channel (preferrably in person)
+        that the ID of the person you are communicating with is
+        really theirs.</p>
+		
+		<p>If you are sure about your chat partner's ID, then
+        there's no way for an attacker to spoof or intercept/decrypt a
+        message from or to your chat partner.</p>
+		
+		<p>The connection between the app and the servers is secure
+        against MITM attacks because the server authenticates itself
+        to the app based on a public key that is hard-coded into the
+        app and whose corresponding secret key is only known by the
+        legitimate servers.</p>
+		
+		<p>Please note: Threema can only be as secure as the device that it is running on.
+			Malware that runs in the background on your device can intercept and falsify data
+			without being noticed.
+			We highly recommend to always install the most recent operating system updates
+			and to only use software from trusted sources.</p>
+	</div>
+</div>
+
+
+<div id="crypto_pfs" class="faqitem">
+	<h3>Does Threema provide forward secrecy?</h3>
+	
+	<div class="faqanswer" style="display: block;">
+		<p>Threema provides forward secrecy on the network
+        connection (not on the end-to-end layer). Client and server negotiate temporary random keys,
+        which are only stored in RAM and replaced every time the app restarts
+		(and at least once every 7 days). An attacker who has captured
+        the network traffic will not be able to decrypt it even if he
+        finds out the long-term secret key of the client or the server
+        after the fact.</p>
+	</div>
+</div>
+
+
+<div id="crypto_local" class="faqitem">
+	<h3>Are messages encrypted when they are stored on my device?</h3>
+	
+	<div class="faqanswer" style="display: block;">
+		<p>Yes.</p>
+		
+		<ul>
+			<li>
+				<p><strong>iOS:</strong> Threema uses the iOS Data Protection feature (with NSFileProtectionComplete) to encrypt messages,
+					images etc. in the device's flash storage. The key used for this encryption
+					is linked to the device PIN and is only available while the device is unlocked.
+					It is necessary to set a PIN in the system settings to use this feature.
+					On newer models, iOS also uses hardware features for the encryption; therefore
+					even a simple four-digit PIN offers a certain protection. For the highest
+					protection against brute force attacks, you should choose a longer, more
+					complex passcode.</p>
+
+				<p>Note: the passcode lock that is built into the app itself does not offer any
+					additional encryption. This feature is intended to keep nosy people from reading
+					your messages when you intentionally give them your phone for a short time 
+					for another purpose. Encryption with a four digit PIN inside the app would not
+					be sensible, as brute force attacks would be trivial (since unlike iOS, an app
+					cannot access special hardware features to protect the key).</p>
+			</li>
+				
+			<li>
+				<p><strong>Android:</strong> Threema includes its own app-specific encryption based on AES-256 to protect
+				stored messages, media and your ID's private key. The key used for this encryption is
+				generated randomly the first time you start Threema, and can optionally be protected by
+				setting a Master Key Passphrase in the settings, which we highly recommend. Without
+				a passphrase, the encryption will only add obscurity due to the way hardware encryption
+				is handled on Android. If you set a Master Key Passphrase, you will have to enter it
+				after every restart of the device (and after the system has terminated the app due
+				to low memory).
+				
+				</p><p>Note: the PIN lock, which can be enabled independently of the master key passphrase,
+					does not cause any additional encryption; it is simply a UI lock.</p>
+			</li>
+		</ul>
+		
+		
+	</div>
+</div>
+
+
+<div id="addressbook_data" class="faqitem">
+	<h3>Will my address book data be sent to your servers?</h3>
+	
+	<div class="faqanswer" style="display: block;">
+		<p>That is your decision – Threema can be used without any address book access. If you have disabled the synchronization
+			in Threema, no address book data will be read. You will then have to manually add your Threema contacts
+			(by typing in their IDs or scanning QR codes).</p>
+		
+		<p>If you decide to use the synchronization, email addresses and phone numbers from your address book will
+			only be transmitted to the server in one-way encrypted ("hashed") form and additionally protected using SSL. The servers only keep these hashes
+			in volatile memory for a short time to determine the list of matching IDs, and then delete the hashes immediately.
+			At no point are the hashes or the results of the synchronization written to disk.
+		</p>
+		
+		<p class="footnote">Please note: due to the relatively low number of possible phone number combinations, it is theoretically possible to
+			crack hashes of phone numbers by trying all possibilities. This is due to the nature of hashes and phone numbers and cannot be solved
+			differently (using salts like for hashing passwords does not work for this kind of data matching). Therefore we treat phone number hashes
+			with the same care as if they were raw/unhashed phone numbers.</p>
+	</div>
+</div>
+
+</div>
+
+
+<div class="faqsection">
+	
+<h2>General</h2>
+
+<div id="otheros" class="faqitem">
+	<h3>When will a Windows Phone/Blackberry/Symbian/... version be available?</h3>
+	
+	<div class="faqanswer">
+		<p>There are currently no specific plans to support other mobile platforms than iOS and Android.</p>
+	</div>
+</div>
+
+<div id="groupchat" class="faqitem">
+	<h3>Is there a group chat feature?</h3>
+	
+	<div class="faqanswer">
+		<p>A group chat feature (up to 20 group members) is available in the current versions for iOS and Android. New groups can be created
+			using the "Compose message" button (iOS), or using the menu item "New group" (Android). Only those contacts can be selected from the list that have installed
+			a group chat capable version of Threema.</p>
+	</div>
+</div>
+
+<div id="multidevice" class="faqitem">
+	<h3>Can I install Threema on multiple devices?</h3>
+	
+	<div class="faqanswer">
+		<p>At this time only one device per ID is supported. While it is possible to transfer
+			the ID to multiple devices using the backup/restore function, only one device can be
+			logged in at any given time, and new messages are only delivered to the last device
+			that has logged in.</p>
+			
+		<p>A multi-device solution (with synchronization of sent and received messages between multiple
+			devices) is currently in the planning stage for a future version.</p>
+	</div>
+</div>
+
+<div id="desktopversion" class="faqitem">
+	<h3>Will there be a desktop version?</h3>
+	
+	<div class="faqanswer">
+		<p>Desktop versions of Threema (e.g. for Windows or Mac OS X) are on the long-term plan. For these to
+			make sense, a multi-device capability (one ID, multiple devices) must first be implemented.</p>
+			
+		<p>At this time, no specific date is known.</p>
+	</div>
+</div>
+
+<div id="threema_id_expl" class="faqitem">
+	<h3>What is a Threema ID?</h3>
+	
+	<div class="faqanswer" style="display: block;">
+		<p>A Threema ID consists of 8 characters (uppercase
+        letters and digits) and is permanently tied to a user's public
+        key. It is assigned randomly by a Threema server when your
+        device submits its new public key for the first time.</p>
+	</div>
+</div>
+
+<div id="push_preview" class="faqitem">
+	<h3>Why can't I see a preview of the message in Push Notifications?</h3>
+	
+	<div class="faqanswer" style="display: block;">
+		<p>On iOS, Push Notifications cannot be processed by an
+        application that is in the background - they are displayed by
+        the system the way that the server sent them, and the
+        application is only informed about it when you launch it. When
+        the server generates a Push Notification, it cannot decrypt
+        the message text (as it does not have the key), and the
+        application on your device (that would have the key) doesn't
+        get a chance to do it either. Therefore, there is no message
+        preview. Think of it as a security advantage.
+		Update iOS 7: here it is possible in priciple to act on
+		push messages in the background; however the protection level
+		of the private key in the keychain, as well as the iOS Data Protection
+		on the message database, would have to be weakened – therefore this
+		probably won't be implemented.</p>
+
+		<p>On Android, Threema can decrypt new incoming messages in the
+			background and thus present them with a preview in the
+			notification bar.</p>
+	</div>
+</div>
+
+<div id="server_location" class="faqitem">
+	<h3>Where are the servers located?</h3>
+	
+	<div class="faqanswer" style="display: block;">
+		<p>All Threema servers are located in Switzerland.</p>
+	</div>
+</div>
+
+<div id="name_origin" class="faqitem">
+	<h3>Why is it called Threema?</h3>
+	
+	<div class="faqanswer" style="display: block;">
+		<p>Threema started life as an abbreviation: EEEMA, for
+        "End-to-End Encrypted Messaging Application". The three Es
+        were a bit unwieldy, so it became Threema.</p>
+	</div>
+</div>
+
+<div id="why_not_otr" class="faqitem">
+	<h3>Why didn't you just use OTR?</h3>
+	
+	<div class="faqanswer" style="display: block;">
+		<p>OTR requires the recipient of a message to be online in
+        order to negotiate a session. This is not suitable for mobile
+        to mobile communication (especially on operating systems where
+        apps are not supposed to run in the background, like iOS).</p>
+	</div>
+</div>
+
+<div id="echo_test" class="faqitem">
+	<h3>How can I make sure this is working when I don't know anybody who has installed it yet?</h3>
+	
+	<div class="faqanswer" style="display: block;">
+		<p>There is a special ID named ECHOECHO that simply
+        echoes back all messages that you send to it. Here is the QR
+        code that you can scan to verify its key:</p>
+
+		<div style="text-align: center"><img src="./Threema - Seriously secure mobile messaging_files/echoecho.png" alt="echo QR code" style="opacity: 0.6; width: 150px; height: 150px"></div>
+		
+		<p><strong>Note that in general, QR codes for ID verification should not be sent over the Internet but
+		   only scanned from the personal mobile phone of the respective person in order to ensure that
+			there has been no manipulation by third parties.</strong></p>
+	</div>
+</div>
+
+<div id="delete_oldid" class="faqitem">
+	<h3>I have created a new ID — how can I delete the old one from the server?</h3>
+	
+	<div class="faqanswer" style="display: block;">
+		<p>We generally don't delete any IDs from our servers. IDs will be deactivated automatically after being unused for 6 months.</p>
+		
+		<p>Please perform the following steps to keep your old ID from appearing in the contact list of 
+			your chat partners:</p>
+			
+		<ol>
+			<li>Link your new ID with the same email address and phone number as your old ID. This will cause
+				the link of the old ID to be removed, since every email address or phone number can only be
+				linked to one ID at a time.</li>
+			
+			<li>Ask your chat partners to delete your old ID from their contact list. It will not be found during
+				synchronization anymore as the links have been removed.</li>
+		</ol>
+		
+		<p>If you cannot or do not want to create a new ID, you can also <a href="https://threema.ch/en/support/unlink.php">Unlink your old ID</a>.</p>
+	</div>
+</div>
+
+<div id="message_storage" class="faqitem">
+	<h3>How long do messages stay in queue for delivery?</h3>
+	
+	<div class="faqanswer">
+		<p>Messages and media are stored on the servers until they have been delivered successfully, or until
+			14 days have elapsed (whichever happens first).</p>
+	</div>
+</div>
+
+<div id="message_cost" class="faqitem">
+	<h3>What does it cost to send a message?</h3>
+	
+	<div class="faqanswer" style="display: block;">
+		<p>Threema transmits messages via the Internet. Aside from Internet connectivity charges (which may vary
+			depending on the mobile network provider), there are no other fees per message.</p>
+	</div>
+</div>
+
+<div id="platform_switch" class="faqitem">
+	<h3>Can I move the purchased app between iOS and Android?</h3>
+	
+	<div class="faqanswer" style="display: block;">
+		<p>No – you need to buy the app again for the new device in the respective app store. However, you can move your Threema ID between iOS and Android
+			(see <a href="https://threema.ch/en/faq.html#newphone">FAQ entry "I've got a new phone — how do I move my ID/messages/contacts?"</a>).</p>
+	</div>
+</div>
+
+<div id="google_sale" class="faqitem">
+	<h3>Has Threema been sold to Google?</h3>
+	
+	<div class="faqanswer" style="display: block;">
+		<p>No. This was just a joke by the German satire website "Der Postillon".</p>
+	</div>
+</div>
+
+</div>
+
+
+
+<div class="madeinswitzerland">
+	<img src="./Threema - Seriously secure mobile messaging_files/chflag.png" width="24" height="24" alt="Swiss flag"> Made in Switzerland.
+</div>
+
+<div class="smalllinks">
+	<a href="https://threema.ch/en/contact.html">Contact</a> | <a href="https://threema.ch/en/privacy.html">Privacy Policy</a>
+</div>
+
+</div>
+
+
+
+
+
+</body></html>

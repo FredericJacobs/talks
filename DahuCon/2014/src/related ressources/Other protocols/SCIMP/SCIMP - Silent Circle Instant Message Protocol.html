@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<!-- saved from url=(0044)https://silentcircle.com/web/scimp-protocol/ -->
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="https://www.facebook.com/2008/fbml" class=" js no-touch backgroundsize csstransforms3d csstransitions csstransforms"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>SCIMP -  Silent Circle Instant Message Protocol</title>
+
+    <meta name="description" content="SCIMP -  Silent Circle Instant Message Protocol">
+    <meta name="keywords" content="SCIMP,  Instant Message Protocol, Encrypted Network, Open Source Peer-Reviewed Encryption, MiTM, SAS, Hashing Algorithms">
+
+
+
+
+<meta name="ROBOTS" content="INDEX, FOLLOW">
+
+<link rel="shortcut icon" href="https://silentcircle.com/static/img/favicon.d9372227eb14.ico" type="image/x-icon">
+
+<link rel="stylesheet" href="./SCIMP - Silent Circle Instant Message Protocol_files/04c865541c64.css" type="text/css" media="screen"><link rel="stylesheet" href="./SCIMP - Silent Circle Instant Message Protocol_files/eedff33bc814.css" type="text/css"><link rel="stylesheet" href="./SCIMP - Silent Circle Instant Message Protocol_files/f48f9baa3105.css" type="text/css" media="screen"><link rel="stylesheet" href="./SCIMP - Silent Circle Instant Message Protocol_files/ef1ddf6bff81.css" type="text/css" media="all"><link rel="stylesheet" href="./SCIMP - Silent Circle Instant Message Protocol_files/281f8d834643.css" type="text/css" media="screen">
+
+<link rel="stylesheet" id="Pacifico-css" href="./SCIMP - Silent Circle Instant Message Protocol_files/css" type="text/css" media="all">
+<link href="./SCIMP - Silent Circle Instant Message Protocol_files/css(1)" rel="stylesheet" type="text/css">
+<link href="./SCIMP - Silent Circle Instant Message Protocol_files/css(2)" rel="stylesheet" type="text/css">
+<!--[if lt IE 9]>
+    <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:400,900,400italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/static/css/docs.dcd4ed0389dd.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="/static/css/ie.227213eb4bdc.css" type="text/css" media="screen">
+  <![endif]-->
+<!-- languages dropdown -->
+<style>
+.alert-info {
+  background-color: #252525;
+  border-color: #252525;
+  color: #252525;
+}
+.navbardollar_
+{ margin: -15px 0;
+  position: relative;
+  float: right;
+}
+</style>
+
+
+
+<style type="text/css"></style><script type="text/javascript" src="./SCIMP - Silent Circle Instant Message Protocol_files/superfish.js"></script><script type="text/javascript" async="" src=""></script></head>
+<body class="home-page" style="overflow-y: auto;">
+<div id="wrapper">
+  <!--header-->
+  <div class="header-block clearfix">
+
+
+    
+
+<!-- topbar -->
+    <div id="topbar">
+      <div class="container clearfix">
+        <div class="row ">
+          <div class="span12">
+            <address class="vcard">
+                <ul id="nav" class="dropdown dropdown-horizontal">
+                  <li>
+                    <a class="email topbar-link" id="account_link" href="https://accounts.silentcircle.com/login/?next=/" target="blank"><i class="icon-signin"></i> My Account</a>
+                    <a class="email topbar-link" id="support_link" href="https://accounts.silentcircle.com/support/" target="blank"><i class="icon-info-sign"></i> My Support</a>
+                    <a class="languages topbar-link" id="languages_link" href="https://silentcircle.com/web/scimp-protocol/?lang=en"><img alt="flags globe" src="./SCIMP - Silent Circle Instant Message Protocol_files/flags_globe.png"> Languages</a>
+                    <ul>
+                    
+                    <li><a href="https://silentcircle.com/web/scimp-protocol/?lang=en">English</a></li>
+                    
+                    <li><a href="https://silentcircle.com/web/scimp-protocol/?lang=es">Español</a></li>
+                    
+                    <li><a href="https://silentcircle.com/web/scimp-protocol/?lang=ru">Русский</a></li>
+                    
+                    <li><a href="https://silentcircle.com/web/scimp-protocol/?lang=de">Deutsch</a></li>
+                    
+
+
+                     
+                      
+                      
+                      </ul>
+                    </li>
+                  </ul>
+            </address>
+
+            <ul class="header-social-icon">
+
+              <li>
+                <a class="icon" href="https://plus.google.com/108387662257871520896" rel="publisher" target="blank"><i class="icon-google-plus"></i></a>
+              </li>
+              <li>
+                <a class="icon" href="http://www.linkedin.com/company/silent-circle?trk=cp_followed_name_silent-circle" target="blank"><i class="icon-linkedin"></i></a>
+              </li>
+              <li>
+                <a class="icon" href="https://twitter.com/Silent_Circle" target="blank"><i class="icon-twitter"></i></a>
+              </li>
+              <li>
+                <a class="icon" href="https://www.facebook.com/SilentCircleLLC" target="blank"><i class="icon-facebook"></i></a>
+              </li>
+              <li><a href="https://blog.silentcircle.com/" target="blank"><img alt="Wordpress" src="./SCIMP - Silent Circle Instant Message Protocol_files/wordpress-top.2e2708764c0e.png"></a>
+              </li>
+
+            </ul>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Logo & Navigation -->
+    <header>
+      <div class="container clearfix">
+        <div class="row ">
+          <div class="span12">
+            <!-- Logo -->
+            <div itemscope="" itemtype="http://schema.org/Organization">
+              <h1 class="brand brand_">
+                  <a itemprop="url" href="https://silentcircle.com/"><img src="./SCIMP - Silent Circle Instant Message Protocol_files/logo-sc.47a96453ceff.png" alt="Silent Circle logo"></a>
+              </h1>
+            </div>
+
+
+            
+
+              <h2 class="brand navbarslogan_">PRIVATE COMMUNICATIONS</h2>
+            
+            <!-- Navigation -->
+            <div class="navbar navbar_">
+              <div class="container">
+                <!--=========== menu ===============-->
+                <div class="nav-collapse nav-collapse_ collapse">
+                  <div class="navbar navbardollar_">
+                    <div class="container">
+                      <!-- as low as -->
+                      <div class="nav-collapse nav-collapse_ collapse">
+                        <ul>
+                            <li>
+                            <a href="http://accounts.silentcircle.com/join" class="button-reddish">Subscribe Now</a>
+                            </li>
+                        </ul>
+
+                      </div>
+                    </div>
+                  </div>
+                  <ul class="nav sf-menu sf-js-enabled">
+
+                    <li class="sub-menu"><a href="https://silentcircle.com/web/aboutus/">About</a>
+                      <ul class="sub-menu" style="display: none;">
+                        <li><a href="https://silentcircle.com/web/how-it-works/">How it works</a></li>
+                        <li><a href="https://silentcircle.com/web/founders-leadership/">The Team</a></li>
+                        <li><a href="https://silentcircle.com/web/unique-story/">The Story</a></li>
+                        <li><a href="https://silentcircle.com/web/reseller-inquiries/">Reseller Info</a></li>
+                        <li><a href="https://jobs-silentcircle.icims.com/jobs/intro?hashed=0">Join the Team</a></li>
+                        <li><a href="https://silentcircle.com/web/contact-us/">Contact</a></li>
+                      </ul>
+                    </li>
+                    <li class="sub-menu"><a href="https://silentcircle.com/web/scimp-protocol/#">Apps &amp; Services</a>
+                      <ul class="sub-menu" style="display: none;">
+
+                        <li><a href="https://silentcircle.com/web/silent-mobile/">Silent Circle Mobile</a>
+                          <ul class="sub-menu" style="display: none;">
+                            <li><a href="https://silentcircle.com/web/silent-phone/">Silent Phone</a> </li>
+                            <li><a href="https://silentcircle.com/web/silent-text/">Silent Text</a>  </li>
+                          </ul>
+
+                        </li>
+                        <li><a href="https://silentcircle.com/web/silent-enterprise/">Silent Circle Enterprise<br> (For Business)</a>
+                           <ul class="sub-menu" style="display: none;">
+                            <li><a href="https://silentcircle.com/web/silent-mobile/">Silent Circle Mobile</a></li>
+                            <li><a href="https://silentcircle.com/web/scmc/">Management Console</a></li>
+                          </ul>
+                        </li>
+                        <li><a href="https://silentcircle.com/web/silent-desktop/">Silent Circle Desktop</a>
+                          <ul class="sub-menu" style="display: none;">
+                            <li><a href="https://silentcircle.com/web/silent-phone-desktop/">Silent Phone for Desktop<br>(Formerly Silent Eyes)</a>
+                            </li>
+                          </ul>
+                        </li>
+                        <li><a href="https://silentcircle.com/web/out-circle-access/">Out-Circle Access</a></li>
+                        <li><a href="https://silentcircle.com/web/scmc/">Management Console (SCMC- For Business)</a></li>
+                        <li><a href="https://silentcircle.com/web/get-started/">Pricing</a></li>
+                        <li><a href="https://silentcircle.com/web/tour/">Take a Tour</a></li>
+                      </ul>
+                    </li>
+                    <li class="sub-menu"><a href="https://silentcircle.com/web/scimp-protocol/#">Support </a>
+                      <ul class="sub-menu" style="display: none;">
+                        <li><a href="https://accounts.silentcircle.com/support/" target="blank">Support Request</a></li>
+                        <li><a href="https://silentcircle.com/web/faq/">FAQs</a>
+                          <ul class="sub-menu" style="display: none;">
+                            <li><a href="https://silentcircle.com/web/faq-silent-phone/">Silent Phone iOS</a></li>
+                            <li><a href="https://silentcircle.com/web/faq-silent-phone-android/">Silent Phone Android</a></li>
+                            <li><a href="https://silentcircle.com/web/faq-silent-text/">Silent Text iOS</a></li>
+                            <li><a href="https://silentcircle.com/web/faq-silent-text-android/">Silent Text Android</a></li>
+                            <li><a href="https://silentcircle.com/web/faq-silent-desktop/">Silent Phone for Desktop</a></li>
+                            <li><a href="https://silentcircle.com/web/faq-ronin/">Rōnin/License</a></li>
+                          </ul>
+                        </li>
+                        <li><a href="https://silentcircle.com/web/faq_videos/">Video Tutorials</a></li>
+                        <li><a href="https://silentcircle.com/web/installation-instructions/">Installation Instructions</a>
+                          <ul class="sub-menu" style="display: none;">
+
+                            <li><a href="https://silentcircle.com/web/installation-instructions/#install-iOS">iOS</a></li>
+                            <li><a href="https://silentcircle.com/web/installation-instructions/#install-android">Android</a></li>
+                            <li><a href="https://silentcircle.com/web/installation-instructions/#install-silentdesktop">Silent Phone for Desktop</a></li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="sub-menu"><a href="https://silentcircle.com/web/scimp-protocol/#">Reference</a>
+                      <ul class="sub-menu" style="display: none;">
+                        <li><a href="https://silentcircle.com/web/use-cases/">Use Cases</a></li>
+                        <li><a href="https://silentcircle.com/web/technology/">Technology</a></li>
+                        <li><a href="https://silentcircle.com/web/silent-network/">Silent Network</a></li>
+                        <li><a href="https://silentcircle.com/web/privacy/">Privacy Statement</a></li>
+                        <li><a href="https://silentcircle.com/web/law-compliance/">Law &amp; Compliance</a></li>
+                        <li><a href="https://silentcircle.com/web/encryption-laws/">Encryption Laws</a></li>
+                        <li><a href="https://silentcircle.com/web/ronin/">Pre-Paid Subscription</a></li>
+                        <li><a href="https://silentcircle.com/web/partners/">Partners</a></li>
+                      </ul>
+                    </li>
+
+                    <li><a href="https://silentcircle.com/web/articles/bulletin/">News</a></li>
+                  </ul><select class="select-menu" style="display: none;"><option value="#">Navigate to...</option><option value="https://silentcircle.com/web/aboutus/">&nbsp;About</option><option value="https://silentcircle.com/web/how-it-works/">&nbsp;––How it works</option><option value="https://silentcircle.com/web/founders-leadership/">&nbsp;––The Team</option><option value="https://silentcircle.com/web/unique-story/">&nbsp;––The Story</option><option value="https://silentcircle.com/web/reseller-inquiries/">&nbsp;––Reseller Info</option><option value="https://jobs-silentcircle.icims.com/jobs/intro?hashed=0">&nbsp;––Join the Team</option><option value="https://silentcircle.com/web/contact-us/">&nbsp;––Contact</option><option value="https://silentcircle.com/web/scimp-protocol/#">&nbsp;Apps &amp; Services</option><option value="https://silentcircle.com/web/silent-mobile/">&nbsp;––Silent Circle Mobile</option><option value="https://silentcircle.com/web/silent-phone/">&nbsp;–––Silent Phone</option><option value="https://silentcircle.com/web/silent-text/">&nbsp;–––Silent Text</option><option value="https://silentcircle.com/web/silent-enterprise/">&nbsp;––Silent Circle Enterprise (For Business)</option><option value="https://silentcircle.com/web/silent-mobile/">&nbsp;–––Silent Circle Mobile</option><option value="https://silentcircle.com/web/scmc/">&nbsp;–––Management Console</option><option value="https://silentcircle.com/web/silent-desktop/">&nbsp;––Silent Circle Desktop</option><option value="https://silentcircle.com/web/silent-phone-desktop/">&nbsp;–––Silent Phone for Desktop(Formerly Silent Eyes)</option><option value="https://silentcircle.com/web/out-circle-access/">&nbsp;––Out-Circle Access</option><option value="https://silentcircle.com/web/scmc/">&nbsp;––Management Console (SCMC- For Business)</option><option value="https://silentcircle.com/web/get-started/">&nbsp;––Pricing</option><option value="https://silentcircle.com/web/tour/">&nbsp;––Take a Tour</option><option value="https://silentcircle.com/web/scimp-protocol/#">&nbsp;Support </option><option value="https://accounts.silentcircle.com/support/">&nbsp;––Support Request</option><option value="https://silentcircle.com/web/faq/">&nbsp;––FAQs</option><option value="https://silentcircle.com/web/faq-silent-phone/">&nbsp;–––Silent Phone iOS</option><option value="https://silentcircle.com/web/faq-silent-phone-android/">&nbsp;–––Silent Phone Android</option><option value="https://silentcircle.com/web/faq-silent-text/">&nbsp;–––Silent Text iOS</option><option value="https://silentcircle.com/web/faq-silent-text-android/">&nbsp;–––Silent Text Android</option><option value="https://silentcircle.com/web/faq-silent-desktop/">&nbsp;–––Silent Phone for Desktop</option><option value="https://silentcircle.com/web/faq-ronin/">&nbsp;–––Rōnin/License</option><option value="https://silentcircle.com/web/faq_videos/">&nbsp;––Video Tutorials</option><option value="https://silentcircle.com/web/installation-instructions/">&nbsp;––Installation Instructions</option><option value="https://silentcircle.com/web/installation-instructions/#install-iOS">&nbsp;–––iOS</option><option value="https://silentcircle.com/web/installation-instructions/#install-android">&nbsp;–––Android</option><option value="https://silentcircle.com/web/installation-instructions/#install-silentdesktop">&nbsp;–––Silent Phone for Desktop</option><option value="https://silentcircle.com/web/scimp-protocol/#">&nbsp;Reference</option><option value="https://silentcircle.com/web/use-cases/">&nbsp;––Use Cases</option><option value="https://silentcircle.com/web/technology/">&nbsp;––Technology</option><option value="https://silentcircle.com/web/silent-network/">&nbsp;––Silent Network</option><option value="https://silentcircle.com/web/privacy/">&nbsp;––Privacy Statement</option><option value="https://silentcircle.com/web/law-compliance/">&nbsp;––Law &amp; Compliance</option><option value="https://silentcircle.com/web/encryption-laws/">&nbsp;––Encryption Laws</option><option value="https://silentcircle.com/web/ronin/">&nbsp;––Pre-Paid Subscription</option><option value="https://silentcircle.com/web/partners/">&nbsp;––Partners</option><option value="https://silentcircle.com/web/articles/bulletin/">&nbsp;News</option></select>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </header>
+  </div>
+
+
+
+
+<!--content-->
+<section id="content">
+  <div class="breadcrumb-wrapper">
+    <div class="shadowdrop"></div>
+    <div class="container">
+          <h2>SCIMP <small>Silent Circle Instant Message Protocol</small></h2>
+    </div>
+  </div>
+  <div class="container">
+    <!-- Icons -->
+    <div class="row">
+      <div class="span12">
+        
+        <div class="title">
+        <h4 class="indent-1 extra">Silent Text</h4>
+        </div>
+       <p>Silent Text  is based on the  Silent Circle Instant Messaging Protocol (SCIMP).  SCIMP  enables  you to have a private conversation over instant message transports such as XMPP (Jabber) and is responsible for both encrypting and securing the message content and as well as negotiate the shared secret keys. </p>
+        <div class="title">
+          <h4 class="indent-1 extra">Silent Circle Instant Message Protocol</h4>
+        </div>
+        <ul>
+            <li class="arrow-list"><a href="https://silentcircle.com/static/download/SCIMP%20paper.pdf">Silent Circle Instant Message Protocol (SCIMP) White Paper</a></li>
+            <li class="arrow-list">Secure conversation over XMPP</li>
+            <li class="arrow-list">Short lived keys, under user control</li>
+            <li class="arrow-list">Strong Encryption</li>
+            <li class="arrow-list">Perfect Forward Security</li>
+            <li class="arrow-list">Message Authentication</li>
+        </ul> 
+      <div class="title">
+        <h4 class="indent-1 extra">Why Invent SCIMP?</h4>
+      </div>
+        <ul>
+            <li class="arrow-list">Protocol &amp; code is easily analyzed and implemented</li>
+            <li class="arrow-list">Strong Encryption throughout</li>
+            <li class="arrow-list">NIST-vetted crypto primitives</li>
+            <li class="arrow-list">Derived from ZRTP</li>
+            <li class="arrow-list">Available as open source uncontaminated by GPL</li>
+      </ul> 
+      <div class="title">
+        <h4 class="indent-1 extra">Modern Crypto</h4>
+      </div>
+
+        <ul>
+            <li class="arrow-list">Elliptic Curve Diffie–Hellman, NIST 800-56A</li>
+            <li class="arrow-list">Advanced Encryption Standard (AES) FIPS-197</li>
+            <li class="arrow-list">Counter with CBC-MAC (CCM), NIST 800-38C</li>
+            <li class="arrow-list">Key Derivation, NIST 800-108</li>
+            <li class="arrow-list">Secure Hash Standard, FIPS 180-4</li>
+            <li class="arrow-list">Skein Hash/MAC (optional)</li>
+            <li class="arrow-list">FIPS-140 is not out of reach</li>
+      </ul> 
+      <div class="title">
+        <h4 class="indent-1 extra">Algorithms and Ciphers Options</h4>
+      </div>
+ 
+        <ul>
+        <table width="100%" border="1" bordercolor="#111111" bgcolor="#111111">
+          <tbody><tr>
+            <td><strong>Suite</strong></td>
+            <td><strong>Hash</strong></td>
+            <td><strong>KDF/MA C</strong></td>
+            <td><strong>Cipher</strong></td>
+            <td><strong>Public Key</strong></td>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>SHA-256</td>
+            <td>HMAC/SHA- 256</td>
+            <td>AES-128</td>
+            <td>ECC-384</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>SHA-512/256</td>
+            <td>HMAC/SHA- 512</td>
+            <td>AES-256</td>
+            <td>ECC-384</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>SKEIN- 512/256</td>
+            <td>SKEIN- MAC-512</td>
+            <td>AES-256</td>
+            <td>ECC-384</td>
+          </tr>
+        </tbody></table>
+      </ul> 
+       <div class="title">
+        <h4 class="indent-1 extra">Alice wants to talk to Bob</h4>
+      </div>
+   
+       
+        <ul>
+            <li>Create a shared secret key to encrypt with:</li>
+              <ul>
+                    <li class="arrow-list">They both generate separate EC-Keys</li>
+                    <li class="arrow-list">Use Diffie Hellman Key exchange to derive a common shared secret.</li>
+              </ul> 
+            <li>Mix some shared information to strengthen the secret into a strong crypto key</li>
+        </ul> 
+       <img src="./SCIMP - Silent Circle Instant Message Protocol_files/tech-alicebob.01d8a22daa18.png" alt="Alice wants to talk to Bob">
+   
+       <div class="title">
+        <h4 class="indent-1 extra">They need to protect against...</h4>
+      </div>
+        <ul>
+            <li class="arrow-list">Eavesdropper trying to figure out the secret key</li>
+            <li class="arrow-list">Impersonator in the middle of the conversation</li>
+            <li class="arrow-list">Decrypting old messages by acquiring the device</li>
+        </ul> 
+       <img src="./SCIMP - Silent Circle Instant Message Protocol_files/tech-aliceevebob.00e95e55e861.png" alt="They need to protect against..." width="500" height="61" border="0">
+       <div class="title">
+        <h4 class="indent-1 extra">SCIMP provides</h4>
+      </div>
+   
+        <ul>
+            <li class="arrow-list">Hash Commitment</li>
+            <li class="arrow-list">Short Authentication String</li>
+            <li class="arrow-list">Key Continuity</li>
+            <li class="arrow-list">Perfect Forward Secrecy</li>
+            <li class="arrow-list">Opportunistic Encryption</li>
+        </ul> 
+        <div class="title">
+        <h4 class="indent-1 extra">Setting up a secure conversation in four steps </h4>
+      </div>
+  
+       
+        <ul>
+            <li class="arrow-list">Eavesdropper trying to figure out the secret key</li>
+            <li class="arrow-list">Impersonator in the middle of the conversation</li>
+            <li class="arrow-list">Decrypting old messages by acquiring the device</li>
+        </ul>
+        <img src="./SCIMP - Silent Circle Instant Message Protocol_files/tech-alicebobstep1.facb78922b79.png" alt="Setting up a secure conversation step 1" width="500" height="328" border="0">
+    
+      <div class="title">
+        <h4 class="indent-1 extra">Alice Commits to Bob </h4>
+      </div>
+        <ul>
+            <li class="arrow-list">Hello, I’d like to talk privately</li>
+            <li class="arrow-list">Here are options I’d like to use</li><img src="./SCIMP - Silent Circle Instant Message Protocol_files/tech-alicebobstep2.7382ddc169d4.png" alt="Setting up a secure conversation step 2" width="263" height="178" border="0">
+            <li class="arrow-list">I’ll show you my secret after you show me yours. But here is something to prove I wont switch it on you.</li>
+            <li class="arrow-list">We might have talked before, do you recognize this?</li><img src="./SCIMP - Silent Circle Instant Message Protocol_files/tech-alicebobstep3.d10c550ac0c6.png" alt="Setting up a secure conversation step 3" border="0">
+        </ul> 
+      <div class="title">
+        <h4 class="indent-1 extra">Bob Replies with DH1</h4>
+      </div>
+    
+          <ul>
+            <li class="arrow-list">Here is a fresh public key</li>
+            <li class="arrow-list">I think we talked before too.. does this look familiar?</li><img src="./SCIMP - Silent Circle Instant Message Protocol_files/tech-dh1-1.00dd9f3e5a51.png" alt="Here is a fresh public key" width="263" height="120" border="0">
+            <li class="arrow-list">If Bob doesn’t support Alice’s options he ends the conversation and sends his own commit.</li>
+            <li class="arrow-list">We might have talked before, do you recognize this?</li><img src="./SCIMP - Silent Circle Instant Message Protocol_files/tech-dh1-2.c35ae327bee8.png" alt="Here is a fresh public key step 2" width="310" height="65" border="0">
+        </ul> 
+      <div class="title">
+        <h4 class="indent-1 extra">Alice continues with DH2</h4>
+      </div>
+      
+        <ul>
+            <li class="arrow-list">Here is the public key I promised you.</li>
+            <li class="arrow-list">Here is a test to verify that our secrets match</li><img src="./SCIMP - Silent Circle Instant Message Protocol_files/tech-dh2-1.5e764714a312.png" alt="Alice continues with DH2" width="263" height="120" border="0">
+            <li class="arrow-list">If Bob doesn’t support Alice’s options he ends the conversation and sends his own commit.</li>
+            <li class="arrow-list">We might have talked before, do you recognize this?</li><img src="./SCIMP - Silent Circle Instant Message Protocol_files/tech-dh2-2.18a2a46d997f.png" alt="Alice continues with DH2" width="600" height="129" border="0">
+      </ul> 
+      <div class="title">
+        <h4 class="indent-1 extra">Bob completes the setup</h4>
+      </div>
+     
+        <ul>
+            <li class="arrow-list">Yes our secrets match</li>
+            <li class="arrow-list">Here is a test to verify that our secrets match too</li><img src="./SCIMP - Silent Circle Instant Message Protocol_files/tech-setup-1.da53fac1c4a4.png" alt="Bob completes the setup" width="263" height="90" border="0">
+            <br>
+          <img src="./SCIMP - Silent Circle Instant Message Protocol_files/tech-setup-2.f6c39394e910.png" alt="Bob completes the setup" width="600" height="113" border="0">
+      </ul> 
+      <div class="title">
+        <h4 class="indent-1 extra">Now that we have a shared secret</h4>
+      </div>
+        
+        <ul>
+            <li class="arrow-list">We need to turn it into strong key material</li>
+            <li class="arrow-list">strengthen it using what we know and how we plan to use the keys for encrypting and authenticating</li>
+            <img src="./SCIMP - Silent Circle Instant Message Protocol_files/tech-secret.cb6910dfeced.png" alt="Now that we have a shared secret" width="500" height="244" border="0"> 
+        </ul> 
+        <div class="title">
+        <h4 class="indent-1 extra">Encrypting a message </h4>
+        </div>
+  
+          <ul>
+            <li class="arrow-list">Sequence numbers with random start index</li>
+            <li class="arrow-list">Payload encrypted using CCM-AES with padding</li>
+            <li class="arrow-list">Message Authentication Code</li>
+            <li class="arrow-list">Different key for each direction</li>
+            <li class="arrow-list">Different key for each message</li>
+           <img src="./SCIMP - Silent Circle Instant Message Protocol_files/tech-message.4585f762ac8a.png" alt="Encrypting a message" width="300" height="150" border="0">
+          </ul> 
+        <div class="title">
+          <h4 class="indent-1 extra">Perfect Forward Secrecy</h4>
+        </div>
+      
+          <ul>
+            <li class="arrow-list">Each message gets it’s own key in a hash chain and is deleted as soon as possible</li>
+            <li class="arrow-list">Seizing the phone will not reveal keys for previously sent messages</li>
+            <img src="./SCIMP - Silent Circle Instant Message Protocol_files/tech-secrecy.7d0fa76d4cc5.png" alt="Perfect Forward Secrecy" width="500" height="248" border="0">
+          </ul> 
+        <div class="title">
+          <h4 class="indent-1 extra">Software Library</h4>
+        </div>
+ 
+          <ul>
+            <li class="arrow-list">libscimp - C library, Simple API (iOS, OSX)</li>
+            <li class="arrow-list">Crypto from LibTomCrypt and LibTomMath</li>
+            <li class="arrow-list">Skein and SkeinMAC</li>
+            <li class="arrow-list">Handles all protocol and crypto operations</li>
+          </ul> 
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <!--footer-->
+
+  <footer>
+    <div id="footer" class="section-3 footer-dark">
+      <div class="container">
+        <div class="row">
+          <!-- Contact us -->
+          <div class="span3">
+            <h2>Stay In Touch</h2>
+              <address class="vcard">
+                <ul id="social" class="tooltip-demo">
+                  <li>
+                    <a href="https://blog.silentcircle.com//" target="blank"><img alt="Wordpress" src="./SCIMP - Silent Circle Instant Message Protocol_files/wordpress2.34316c0fb40e.png"></a>
+                  </li>
+                  <li>
+                    <a href="https://www.facebook.com/SilentCircleLLC" target="blank"><img alt="Facebook" src="./SCIMP - Silent Circle Instant Message Protocol_files/facebook2.b57f5761b343.png"></a>
+                  </li>
+                  <li>
+                    <a href="https://twitter.com/Silent_Circle" target="blank"><img alt="Twitter" src="./SCIMP - Silent Circle Instant Message Protocol_files/twitter2.70f108bb2d08.png"></a>
+                  </li>
+                  <li>
+                    <a href="http://www.linkedin.com/company/silent-circle?trk=cp_followed_name_silent-circle" target="blank"><img alt="LinkedIn" src="./SCIMP - Silent Circle Instant Message Protocol_files/linkedin.416300996ea3.png"></a>
+                  </li>
+                  <li>
+                    <a href="https://plus.google.com/108387662257871520896" rel="publisher" target="blank"><img alt="LinkedIn" src="./SCIMP - Silent Circle Instant Message Protocol_files/google.a86f8cfb10f6.png"></a>
+                  </li>
+
+
+                </ul>
+              </address>
+              <h2>Sign-up for Updates</h2>
+              <form class="navbar-inverse form-search validate" action="https://silentcircle.us7.list-manage.com/subscribe/post?u=4b0d5856310f9954450d323d6&id=f7828b570e" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" novalidate="">
+                <div class="navbar-search input-append">
+                  <input type="email" name="EMAIL" placeholder="Email Address" class="span2 search-query" required="">
+                  <button type="submit" class="btn btn-warning">submit</button>
+                </div>
+                <div class="clearfix"></div>
+              </form>
+
+          </div>
+          <!-- Useful Links -->
+          <div class="span3">
+            <h2>Support</h2>
+            <ul class="list">
+              <li><a href="https://accounts.silentcircle.com/support/" target="blank">Support Request</a></li>
+              <li><a href="https://silentcircle.com/web/faq/">FAQs</a></li>
+              <li><a href="https://silentcircle.com/web/faq_videos/">Video Tutorials</a></li>
+              <li><a href="https://silentcircle.com/web/installation-instructions/">Installation Instructions</a></li>
+              <li><a href="https://silentcircle.com/web/human-rights/">Application for NGO</a></li>
+            </ul>
+          </div>
+         <!-- twitter feed  -->
+        <div class="span3">
+            <h2>Company</h2>
+            <ul class="list">
+              <li><a href="https://silentcircle.com/web/contact-us/">Contact</a></li>
+              <li><a href="https://silentcircle.com/web/reseller-inquiries/">Reseller/Channel Sales</a></li>
+              <li><a href="https://silentcircle.com/web/articles/featured-articles/">News</a></li>
+              <li><a href="https://jobs-silentcircle.icims.com/jobs/intro?hashed=0">Join the Team</a></li>
+              <li><a href="https://silentcircle.com/web/privacy/">Privacy Statement</a></li>
+
+            </ul>
+          </div>
+          <!-- Newsletter -->
+          <div class="span3">
+            <h2>Contact us</h2>
+             <ul class="list">
+              <li>
+                <span class="street-address"><b>US Headquarters</b> <br>National Harbor, Maryland</span><br>
+                <span class="tel">+1.202.499.6427</span> <br>
+                <a href="mailto:info@silentcircle.com" class="email">info@silentcircle.com</a>
+              </li>
+              <li>
+                <span class="street-address"><b>EMEA Operations</b>  <br>Berkeley Square House</span><br><span class="tel">+44 (0)207 887 4563 (UK)</span>
+              </li>
+            </ul>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- footer 2 -->
+    <div id="copyrights" class="footer-2 footer-dark">
+      <div class="container">
+        <div class="row">
+          <div class="span12">© 2014 Silent Circle | Private Communications | Silicon Valley . Washington DC . London</div>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+
+
+<script type="text/javascript" src="./SCIMP - Silent Circle Instant Message Protocol_files/order-form.js"></script>
+<script type="text/javascript" src="./SCIMP - Silent Circle Instant Message Protocol_files/jquery.js"></script>
+<script type="text/javascript" src="./SCIMP - Silent Circle Instant Message Protocol_files/bootstrap.js"></script>
+<script type="text/javascript" src="./SCIMP - Silent Circle Instant Message Protocol_files/custom.js"></script>
+<script type="text/javascript" src="./SCIMP - Silent Circle Instant Message Protocol_files/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="./SCIMP - Silent Circle Instant Message Protocol_files/jquery.sliderTabs.js"></script>
+<script type="text/javascript" src="./SCIMP - Silent Circle Instant Message Protocol_files/jquery.themepunch.plugins.min.js"></script>
+<script type="text/javascript" src="./SCIMP - Silent Circle Instant Message Protocol_files/jquery.themepunch.revolution.min.js"></script>
+<script type="text/javascript" src="./SCIMP - Silent Circle Instant Message Protocol_files/jquery.elastislide.js"></script>
+<script type="text/javascript" src="./SCIMP - Silent Circle Instant Message Protocol_files/jquery.prettyphoto.js"></script>
+<script type="text/javascript" src="./SCIMP - Silent Circle Instant Message Protocol_files/carousel.js"></script>
+<script type="text/javascript" src="./SCIMP - Silent Circle Instant Message Protocol_files/jquery.ui.totop.js"></script>
+<script type="text/javascript" src="./SCIMP - Silent Circle Instant Message Protocol_files/prettify.js"></script>
+<script type="text/javascript" src="./SCIMP - Silent Circle Instant Message Protocol_files/application.js"></script>
+<script type="text/javascript" src="./SCIMP - Silent Circle Instant Message Protocol_files/jquery.cookie.js"></script>
+<script type="text/javascript" src="./SCIMP - Silent Circle Instant Message Protocol_files/jquery.quicksand.js"></script>
+<script type="text/javascript" src="./SCIMP - Silent Circle Instant Message Protocol_files/jquery.gridrotator.js"></script>
+<script type="text/javascript" src="./SCIMP - Silent Circle Instant Message Protocol_files/jquery.mobile.customized.min.js"></script>
+<script type="text/javascript" src="./SCIMP - Silent Circle Instant Message Protocol_files/accordion.js"></script>
+<script type="text/javascript" src="./SCIMP - Silent Circle Instant Message Protocol_files/tabs.js"></script>
+<script type="text/javascript" src="./SCIMP - Silent Circle Instant Message Protocol_files/sitemap.js"></script>
+<script type="text/javascript" src="./SCIMP - Silent Circle Instant Message Protocol_files/nav-small.js"></script>
+<script type="text/javascript" src="./SCIMP - Silent Circle Instant Message Protocol_files/jquery.mobilemenu.js"></script>
+<script type="text/javascript" src="./SCIMP - Silent Circle Instant Message Protocol_files/jquery.isotope.min.js"></script>
+<script type="text/javascript" src="./SCIMP - Silent Circle Instant Message Protocol_files/boxgrid.js"></script>
+<script type="text/javascript" src="./SCIMP - Silent Circle Instant Message Protocol_files/switcher.js"></script>
+<script type="text/javascript" src="./SCIMP - Silent Circle Instant Message Protocol_files/jquery.nivo.slider.js"></script>
+<script>
+  jQuery("#carousel-blog").elastislide({
+    imageW    : 1270,
+    minItems    : 1,
+    speed     : 600,
+    easing    : "easeOutQuart",
+    margin    : 30,
+    border    : 0,
+    onClick   : function() {}
+  });
+
+  $(function() {
+
+    $( '#ri-grid' ).gridrotator( {
+      rows : 4,
+      columns : 8,
+      maxStep : 2,
+      interval : 2000,
+      w1024 : {
+        rows : 5,
+        columns : 6
+      },
+      w768 : {
+        rows : 5,
+        columns : 5
+      },
+      w480 : {
+        rows : 6,
+        columns : 4
+      },
+      w320 : {
+        rows : 7,
+        columns : 4
+      },
+      w240 : {
+        rows : 7,
+        columns : 3
+      },
+    } );
+
+    Boxgrid.init();
+  });
+
+  $(window).load(function() {
+    $('#slider').nivoSlider();
+  });
+</script>
+
+<script type="text/javascript" src="./SCIMP - Silent Circle Instant Message Protocol_files/piwik.js"></script>
+<script type="text/javascript">
+  try {
+    var piwikTracker = Piwik.getTracker("https://stats.silentcircle.com/piwik.php", 2);
+    piwikTracker.trackPageView();
+    piwikTracker.enableLinkTracking();
+  } catch( err ) {}
+</script><noscript>&lt;p&gt;&lt;img src="https://stats.silentcircle.com/piwik.php?idsite=2" style="border:0" alt="" /&gt;&lt;/p&gt;</noscript>
+
+<!--VISISTAT SNIPPET//-->
+<script type="text/javascript">
+//<![CDATA[
+var DID=220331;
+var pcheck=(window.location.protocol == "https:") ? "/static/js/visistat.js":"/static/js/visistat.js";
+document.writeln('<scr'+'ipt src="'+pcheck+'" type="text\/javascript"><\/scr'+'ipt>');
+//]]>
+</script><script src="./SCIMP - Silent Circle Instant Message Protocol_files/visistat.js" type="text/javascript"></script>
+
+<!--VISISTAT SNIPPET//-->
+
+
+
+
+<a href="https://silentcircle.com/web/scimp-protocol/#" id="toTop" style="margin-right: -64px; right: 50%; display: block;"><span id="toTopHover"></span></a></body></html>

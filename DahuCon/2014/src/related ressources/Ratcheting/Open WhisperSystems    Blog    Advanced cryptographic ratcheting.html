@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<!-- saved from url=(0052)https://whispersystems.org/blog/advanced-ratcheting/ -->
+<html class=" js flexbox canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths" style=""><!-- Classes dumped on HTML element by Modernizr --><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <!-- meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" -->
+
+    
+    
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@whispersystems">
+    <meta name="twitter:creator" content="@moxie">
+    <meta name="twitter:url" content="https://www.whispersystems.org/blog/advanced-ratcheting">
+
+    
+    <meta name="twitter:title" content="Advanced cryptographic ratcheting">
+
+    
+    <meta name="twitter:description" content="At Open WhisperSystems, we’ve been working on improving our encrypted asynchronous chat protocol for TextSecure. The TextSecure protocol was originally a derivative of OTR, with minor changes to accommodate it for transports with constraints like SMS or Push. Some of the recent changes we’ve made include simplifying and improving OTR’s deniability, as well as creating a key exchange mechanism for asynchronous transports. Our most recent change incorporates what we believe to be substantial improvements to OTR’s forward secrecy “ratchet.”">
+
+    
+    
+
+    <title>Open WhisperSystems &gt;&gt; Blog &gt;&gt; Advanced cryptographic ratcheting</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="https://whispersystems.org/assets/header/favicon-1a9e68f2aa36885672375b123cdcdb3a.ico" type="image/x-icon">
+    <link rel="icon" href="https://whispersystems.org/assets/header/favicon-1a9e68f2aa36885672375b123cdcdb3a.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="https://whispersystems.org/assets/normalize-6b4d606d4fbe39d400b8defecf5c4814.css">
+    <link rel="stylesheet" href="https://whispersystems.org/assets/bootstrap-carousel-d6ef0c0e3b460109db2b3c288b3221ed.css">
+    <link rel="stylesheet" href="https://whispersystems.org/assets/main-819a0df4827d41233d4460818b74ab22.css">
+<!--
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/bootstrap-carousel.css">
+    <link rel="stylesheet" href="/css/main.css">
+-->
+    <link rel="stylesheet" href="https://whispersystems.org/fonts/opensans/stylesheet.css">
+    <link rel="stylesheet" href="https://whispersystems.org/fonts/bitter/stylesheet.css">
+
+    <script src="./Open WhisperSystems    Blog    Advanced cryptographic ratcheting_files/hn.js"></script><script id="twitter-wjs" src="./Open WhisperSystems    Blog    Advanced cryptographic ratcheting_files/widgets.js" class="disconnect-collapsed"></script><script src="./Open WhisperSystems    Blog    Advanced cryptographic ratcheting_files/modernizr-2.6.2-respond-1.1.0-9ad640e67a5c064f35b75785b373f25e.min"></script><style type="text/css"></style>
+<!--    <script src="/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>-->
+
+    <link href="./Open WhisperSystems    Blog    Advanced cryptographic ratcheting_files/css" rel="stylesheet" type="text/css">
+  <script type="text/javascript" async="" src="./Open WhisperSystems    Blog    Advanced cryptographic ratcheting_files/embed.js"></script><script type="text/javascript" async="" src="./Open WhisperSystems    Blog    Advanced cryptographic ratcheting_files/js" class="disconnect-collapsed"></script></head>
+
+  <body style="">
+    <div id="wrap">
+      <div id="container">
+        <header class="main-head">
+          <nav class="topnav bar container">
+            <div class="header-graphics">
+              <ul>
+                <li><a class="scroll" href="https://whispersystems.org/#privacy">Our Apps</a></li>
+                <li><a href="https://whispersystems.org/blog/">The Blog</a></li>
+                <li><a href="http://support.whispersystems.org/">Support</a></li>
+                <li><a title="Twitter" class="twitter" href="https://twitter.com/whispersystems">Twitter</a></li>
+              </ul>
+              <a href="https://whispersystems.org/" id="raven-logo">
+                <img class="bird" alt="Raven Logo" src="./Open WhisperSystems    Blog    Advanced cryptographic ratcheting_files/raven-46e547e5d71484be52060be1155f6ff2.png">
+              </a>
+              <a href="https://whispersystems.org/" id="text-logo">
+                <img class="whisper" alt="Whisper Systems" src="./Open WhisperSystems    Blog    Advanced cryptographic ratcheting_files/whispersystems-9114542c48e0023f090150704b562c8d.png" width="243" height="79">
+              </a>
+            </div>
+
+          </nav>
+
+          
+        </header>
+
+        <section id="blog">
+
+  <section id="title" class="container">
+    <img class="arrow" src="./Open WhisperSystems    Blog    Advanced cryptographic ratcheting_files/black_down_arrow-d4ae964aca08d864a39969a4298c43b3.png">
+    <div class="rss"><a href="https://whispersystems.org/blog/rss.xml"><img class="feed" src="./Open WhisperSystems    Blog    Advanced cryptographic ratcheting_files/rss-fbc111f320cae80752ade1985a0d8f3e.png"></a></div>
+    
+    
+      <h2><a href="https://whispersystems.org/blog/">Blog</a> &gt;&gt; Advanced cryptographic ratcheting</h2>
+    
+
+  </section>
+
+  <article class="container">
+
+
+<p>At Open WhisperSystems, we’ve been working on improving our encrypted asynchronous chat protocol for TextSecure. The TextSecure protocol was originally a derivative of <a href="https://otr.cypherpunks.ca/Protocol-v3-4.0.0.html">OTR</a>, with minor changes to accommodate it for transports with constraints like SMS or Push. Some of the recent changes we’ve made include <a href="https://whispersystems.org/blog/simplifying-otr-deniability">simplifying and improving OTR’s deniability</a>, as well as creating a <a href="https://whispersystems.org/blog/asynchronous-security">key exchange mechanism for asynchronous transports</a>. Our most recent change incorporates what we believe to be substantial improvements to OTR’s forward secrecy “ratchet.”</p>
+
+<p>
+
+</p>
+
+<h2 id="the_otr_ratchet">The OTR Ratchet</h2>
+
+<p>As we’ve <a href="https://whispersystems.org/blog/asynchronous-security">discussed previously</a>, ”<a href="https://en.wikipedia.org/wiki/Forward_secrecy">forward secrecy</a>” is one of the critical security properties OTR is designed to provide. In contrast to the PGP protocol model, where messages to a recipient are encrypted with the same public key over and over again, OTR uses <a href="https://en.wikipedia.org/wiki/Diffie%E2%80%93Hellman_key_exchange">ephemeral key exchanges</a> for each session. This is a critical feature of any modern secure protocol, because otherwise a network adversary who records (potentially years of) ciphertext traffic can later decrypt <em>all of it</em> if they manage to <a href="http://www.thoughtcrime.org/blog/lavabit-critique/">later compromise the one key that was used</a>. By contrast, with ephemeral key exchanges, there is no key to compromise in the future (since the keys are only ephemerally in memory for a short time), so any recorded ciphertext should remain private.</p>
+
+<p>Simply doing an ephemeral key exchange at the beginning of a session is enough to provide this property, but OTR takes things a step further by continuously ratcheting the key material forward during the course of a session. The OTR ratchet is what we call a “three step ratchet.”</p>
+
+<ol>
+<li>Alice sends an encrypted message to Bob. Along with the actual message content, Alice “advertises” a new Diffie-Hellman key that she will use in the future.</li>
+
+<li>Bob sends an encrypted message to Alice. Along with the actual message content, Bob “acknowledges” the key that Alice advertised, and also advertises his own next key.</li>
+
+<li>Alice will use the advertised and acknowledged key the next time she sends a message.</li>
+</ol>
+
+<p><img src="./Open WhisperSystems    Blog    Advanced cryptographic ratcheting_files/threestepratchet.png" class="nice"></p>
+
+<p>Note that, until Bob has acknowledged Alice’s next key, she can’t use it. If Alice needs to send multiple messages to Bob before he replies, Alice will need to keep using her current key and advertising the same next key.</p>
+
+<h2 id="textsecure_and_forward_secrecy">TextSecure and Forward Secrecy</h2>
+
+<p>Given that OTR was originally positioned for instant messaging apps, it’s not clear why individual message level forward secrecy is necessary. Instant messaging sessions tend to be ephemeral, and the messages themselves tend to be in memory for the duration of the session, so it’s not entirely obvious what immediate value a ratcheting forward secrecy protocol provides in that context. Simply doing an ephemeral Diffie-Hellman key exchange at the beginning of every session would probably be enough.</p>
+
+<p>As an asynchronous messaging app, however, TextSecure benefits greatly from such a ratcheting forward secrecy mechanism. Asynchronous chat sessions tend to be extremely long lived (perhaps even years long), in contrast to IM sessions which are constantly being setup and torn down. In the context of long-lived sessions, however, the OTR ratcheting protocol leaves something to be desired. Given the nature of a “three step” ratchet, if a sender transmits something to a receiver, and the receiver doesn’t respond for a few days, the sender has to keep the key material used to encrypt that message around for <em>days</em>.</p>
+
+<p>There are other simple problems as well. OTR was designed for transports which guarantee in-order delivery, which most asychronous messaging transports don’t provide. There is a counter which prevents replay attacks, but it’s complex to adapt to an unreliable transport, and there is also a possibility that old messages can arrive after key material has been rolled forward.</p>
+
+<h2 id="the_scimp_ratchet">The SCIMP Ratchet</h2>
+
+<p>Silent Circle uses a <em>synchronous</em> protocol of their own devising (called SCIMP) that employs a different style of ratchet.</p>
+
+<p>Each message key is derived as an iterative hash of the last message key used.</p>
+
+<ol>
+<li>As soon as Alice sends a message to Bob, she hashes her encryption key to get her next encryption key.</li>
+
+<li>Alice immediately destroys her encryption key and replaces it with her next encryption key.</li>
+</ol>
+
+<p><img src="./Open WhisperSystems    Blog    Advanced cryptographic ratcheting_files/scimp_ratchet.png" class="nice"></p>
+
+<p>It’s clear that an asynchronous messaging app like TextSecure could benefit from an immediate ratchet. Even with long running sessions, there would never be <em>any</em> outstanding key material available for compromise. However, a protocol like SCIMP has some drawbacks as well:</p>
+
+<ol>
+<li>
+<p>The first question is what a client should do when a message is lost. If a client is expecting a message with sequence number <code>5</code> but instead receives a message with sequence number <code>6</code> (common for asynchronous transports), what should the client do? It’s possible to derive the key material for sequence number <code>5</code> and then immediately derive the key material for sequence number <code>6</code> to decrypt the message, but the client would need to hang on to the key material for sequence number <code>5</code> until the message arrives.</p>
+
+<p>That key material is sensitive, however, because it can be used to calculate the key material for <em>every subsequent sequence number</em>. So a client can’t hang on to it forever, and using time-based or window-based approaches for how long a client should retain it are always going to be hard to tune and inevitably tuned incorrectly for some percentage of cases.</p>
+</li>
+
+<li>
+<p>The OTR style ratchet has the nice property of being “self healing.” If, for whatever reason, any individual ephemeral key is compromised or otherwise found to be weak at any time, the ratchet will heal itself. We call this “future secrecy.” In the SCIMP hash iteration case, however, any individual ephemeral key compromise or problem will extend through the entire session.</p>
+</li>
+</ol>
+
+<h2 id="the_window_of_compromise">The Window Of Compromise</h2>
+
+<p>A ratcheting protocol is largely about reducing the impacts of a key compromise. A hash ratchet protocol like SCIMP has <em>excellent</em> forward secrecy properties but poor future secrecy properties, while a DH ratchet protocol like OTR has less than perfect forward secrecy properties but nice future secrecy properties:</p>
+
+<p><img src="./Open WhisperSystems    Blog    Advanced cryptographic ratcheting_files/compromise_window.png" class="nice"></p>
+
+<h2 id="the_textsecure_ratchet">The TextSecure Ratchet</h2>
+
+<p>We wanted a ratchet that combines the best of both worlds: the optimal <em>forward</em> secrecy that a hash iteration ratchet like SCIMP provides, as well as the the nice <em>future</em> secrecy properties that a DH ratchet like OTR provides, with as little of the negatives of both as possible. The inimitable <a href="https://github.com/trevp__">Trevor Perrin</a> did most of the heavy lifting for the primary innovations in combining the two.</p>
+
+<p>First, remember that the OTR message format looks roughly like this:</p>
+
+<pre><code>struct {
+  opaque sender_key_id[4];
+  opaque receiver_key_id[4];
+  opaque next_key_id[4];
+  opaque next_key[32];
+  opaque ciphertext[...];
+  opaque mac[10];	
+} OTR_Message;</code></pre>
+
+<p>All these key IDs are necessary because OTR is based on a mechanism of “advertising” keys and receiving confirmations for those keys in subsequent messages. By advertising a key under a MAC from the previous key, the integrity of advertised keys can be traced all the way back to the original shared key, ensuring that no MITM attack is possible on any of the subsequently advertised keys. However, that is the source of our “three step” DH ratchet problem, and also makes for a fair amount of book keeping.</p>
+
+<p>We wanted to incorporate a DH ratchet into our ratcheting protocol because of the “future” secrecy it provides. However, it would be nice if we could eliminate the “advertise” step in the OTR ratchet and bring it down to a “two step” ratchet. In order to achieve a “two step” ratchet, we derive a <code>RootKey</code> in our initial handshake KDF, and both mix it into and re-derive it from every subsequent DH KDF. This makes it possible to chain the key material together so that Alice can create and use a new DH ephemeral key <em>immediately</em> without first advertising it and waiting for acknowledgment. Because the <code>RootKey</code> is mixed into the KDF, trust in new ephemerals can still be chained back to the initial handshake.</p>
+
+<p>This transforms the “three step” DH ratchet into a “two step” DH ratchet:</p>
+
+<ol>
+<li>Alice generates a new ECDH ephemeral key <code>A1</code> and uses it immediately to send a message.</li>
+
+<li>Alice receives a message with Bob’s new ECDH ephemeral <code>B1</code> and can then destroy <code>A1</code> and generate <code>A2</code> when sending her next message.</li>
+</ol>
+
+<p><img src="./Open WhisperSystems    Blog    Advanced cryptographic ratcheting_files/twostep_ratchet.png" class="nice"></p>
+
+<p>This is a best possible case DH ratchet, and it also greatly simplifies the message format, which is now simply:</p>
+
+<pre><code>struct {
+  opaque sender_ephemeral[32];
+  opaque body[...]
+  opaque mac[10]
+}</code></pre>
+
+<p>It also eliminates all the key ID book keeping.</p>
+
+<p>To get the immediate forward secrecy of a SCIMP-like protocol, we can now mix in that style of hash iteration ratchet for the space between DH round trip clicks. Essentially, for each message sent within the context of a single DH ratchet click, there is a sub-ratchet in the hash iteration ratchet style.</p>
+
+<p>From Alice’s perspective, the final picture looks like this:</p>
+
+<pre><code>              Alice
+		  
+    Sending     |     Receiving
+
+MK      CK      RK      CK      MK</code></pre>
+<hr>
+<pre><code>            ECDH(A0,B0)
+                |
+                |
+    ECDH(A1,B0) + 
+               /|
+              / |
+             /  + ECDH(A1,B1)
+     CK-A1-B0   |\
+         |      | \
+MK-0 ----+      |  \
+         |      |   CK-A1-B1
+MK-1 ----+      |       |
+         |      |       +---- MK-0
+MK-2 ----+      |       |
+                |       +---- MK-1
+    ECDH(A2,B1) +
+               /|
+              / |
+             /  |
+     CK-A2-B1   |
+         |      + ECDH(A2,B2)
+MK-0 ----+       \
+                  \
+                   \
+                    CK-A2-B2
+                        |
+                        +---- MK-0
+                        |
+                        +---- MK-1</code></pre>
+
+<ol>
+<li>Each DH ratchet is combined with the existing root key (<code>RK</code>) to derive a new <code>RK</code> as well as a “chain key” for that DH pair.</li>
+
+<li>Each “chain key” is hash iterated for each message sent/received under that chain.</li>
+
+<li>Rather than hash iterating the cipher keys used to encrypt a message directly (SCIMP style), there is a layer of indirection where message keys are derived from the chain keys. This solves SCIMP’s “delayed message problem,” because in the case of a delayed message its keys can be immediately derived and cached without holding back the chain key from ratcheting forward. Those cached message keys can not be used to derive any subsequent message keys, maintaining forward secrecy.</li>
+</ol>
+
+<p>The final message format is simply:</p>
+
+<pre><code>struct {
+  opaque sender_ephemeral_key[32];
+  opaque counter[3];
+  opaque mac[10];
+} </code></pre>
+
+<p>The result is a ratcheting protocol that combines the best of a DH ratchet’s “future secrecy” properties with the optimal “forward secrecy” properties from a hash ratchet. It also simplifies the wire format and eliminates all the key ID book keeping. Nice properties like cryptographically-enforced message ordering and replay protection all come for free, without any complex record keeping required. The code is simpler, and the protocol security is more robust.</p>
+
+<p>We think this represents an improved cryptographic protocol for asynchronous messaging systems like TextSecure. Another asynchronous messaging system, Pond, has <a href="https://github.com/agl/pond/commit/338395668fbb8a7819c0fccf54dccaa4d7f0ae9e">also incorporated it</a>.</p>
+
+<p>This is obviously a simplified protocol description, but the <a href="https://github.com/trevp/axolotl/wiki">full specification can be found here</a> if you’d like to look at it critically or in more detail.</p>
+
+<p>– <a href="https://twitter.com/moxie">Moxie Marlinspike</a>, 26 November 2013</p>
+
+
+  <ul class="social-buttons">
+    <li><a href="https://twitter.com/share" class="twitter-share-button" data-via="whispersystems">Tweet</a></li>
+    <li><iframe src="about:blank" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:107px; height:21px;" allowtransparency="true" class="disconnect-collapsed"></iframe></li>
+    <li><iframe src="./Open WhisperSystems    Blog    Advanced cryptographic ratcheting_files/button.html" scrolling="auto" frameborder="0" width="75px" height="20px" class="hn-share-iframe"></iframe></li>
+  </ul>
+
+  <div id="disqus_thread"><iframe id="dsq-2" data-disqus-uid="2" allowtransparency="true" frameborder="0" tabindex="0" title="Disqus" width="100%" src="./Open WhisperSystems    Blog    Advanced cryptographic ratcheting_files/saved_resource.html" scrolling="no" horizontalscrolling="no" verticalscrolling="no" style="width: 100% !important; border: none !important; overflow: hidden !important; height: 0px !important;"></iframe><div dir="ltr" style="overflow: hidden;"><div style="height: 51px; width: 54px; margin: 0px auto; overflow: hidden; background-image: url(https://a.disquscdn.com/next/assets/img/loader-bg.6f0512a11a0d2d3c1a28284486e74f1d.png); background-repeat: no-repeat no-repeat;"><style type="text/css">.disqus-loader{animation:disqus-embed-spinner .7s infinite linear;-webkit-animation:disqus-embed-spinner .7s infinite linear}@keyframes disqus-embed-spinner{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}@-webkit-keyframes disqus-embed-spinner{0%{-webkit-transform:rotate(0deg)}100%{-webkit-transform:rotate(360deg)}}</style><div class="disqus-loader" style="width: 29px; height: 29px; margin: 11px 14px; background-image: url(https://a.disquscdn.com/next/assets/img/loader-bg.6f0512a11a0d2d3c1a28284486e74f1d.png); background-position: -54px 0px; background-repeat: no-repeat no-repeat;"></div></div></div></div>
+
+<!-- Final scripts after vital HTML elements in post -->
+
+  <script>
+      var disqus_shortname = 'openwhispersystems';
+
+      (function() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+  </script>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+  </script>
+  <script>
+    (function(d, t) {
+    var g = d.createElement(t),
+    s = d.getElementsByTagName(t)[0];
+    g.src = '//hnbutton.appspot.com/static/hn.js';
+    s.parentNode.insertBefore(g, s);
+    }(document, 'script'));
+  </script>
+
+</article>
+
+
+</section>
+
+
+        <section id="bottom">
+          Stay in touch,
+          <a href="https://twitter.com/whispersystems" class="twitter-follow-button" data-show-count="false" data-size="large" data-show-screen-name="false"> Follow @whispersystems </a> on Twitter.
+          <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+        </section>
+
+        <div class="bar-wrap">
+          <footer class="bar">
+            <p class="notice copyright">© 2013-2014 Open Whisper Systems — info@whispersystems.org</p>
+            <nav class="botnav">
+              <ul>
+                <li><a class="scroll" href="https://whispersystems.org/#privacy">Our Apps</a></li>
+                <li><a href="https://whispersystems.org/blog/">The Blog</a></li>
+                <li><a href="http://support.whispersystems.org/">Support</a></li>
+                <li><a title="Twitter" class="twitter" href="https://twitter.com/whispersystems">Twitter</a></li>
+              </ul>
+            </nav>
+          </footer>
+          <div class="clearfix"></div>
+        </div>
+      </div> <!-- /container -->
+    </div> <!-- /wrap -->
+
+<!-- Final scripts after vital HTML elements in root -->
+
+    <script src="./Open WhisperSystems    Blog    Advanced cryptographic ratcheting_files/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.8.3.min.js"><\/script>')</script>
+
+    <script src="./Open WhisperSystems    Blog    Advanced cryptographic ratcheting_files/bootstrap-transition-84668559f089615b0830b7410b9f98e0.js"></script>
+    <script src="./Open WhisperSystems    Blog    Advanced cryptographic ratcheting_files/bootstrap-carousel-dcd4acf534143f6ef436187f10743f4f.js"></script>
+    <script src="./Open WhisperSystems    Blog    Advanced cryptographic ratcheting_files/main-de2b111c426769f56672e9f70af47061.js"></script>
+
+<!--<script src="/js/vendor/bootstrap-transition.js"></script>
+    <script src="/js/vendor/bootstrap-carousel.js"></script>
+    <script src="/js/main.js"></script> "Commented out because of JEKYLL Assets" -->
+
+    <script>
+      var clicky_site_ids = clicky_site_ids || [];
+      clicky_site_ids.push(100570585);
+      (function() {
+      var s = document.createElement('script');
+      s.type = 'text/javascript';
+      s.async = true;
+      s.src = '//static.getclicky.com/js';
+      ( document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0] ).appendChild( s );
+      })();
+    </script>
+    <noscript>&lt;p&gt;&lt;img alt="Clicky" width="1" height="1" src="//in.getclicky.com/100570585ns.gif" /&gt;&lt;/p&gt;</noscript>
+
+  
+
+</body></html>

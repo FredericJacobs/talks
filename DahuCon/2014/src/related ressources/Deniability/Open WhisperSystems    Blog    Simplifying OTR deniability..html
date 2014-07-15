@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<!-- saved from url=(0060)https://whispersystems.org/blog/simplifying-otr-deniability/ -->
+<html class=" js flexbox canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths" style=""><!-- Classes dumped on HTML element by Modernizr --><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <!-- meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" -->
+
+    
+    
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@whispersystems">
+    <meta name="twitter:creator" content="@moxie">
+    <meta name="twitter:url" content="https://www.whispersystems.org/blog/simplifying-otr-deniability">
+
+    
+    <meta name="twitter:title" content="Simplifying OTR deniability.">
+
+    
+    <meta name="twitter:description" content="At Open Whisper Systems we help develop TextSecure, an encrypted chat application for Android. TextSecure was designed as a general purpose SMS/MMS client which would also automatically encrypt conversations when communicating with other TextSecure users. For those encrypted sessions, TextSecure uses a compact derivative of the well known OTR protocol.
+
+We’re currently in the process of transitioning TextSecure to use a device’s data channel as a transport for communication with other TextSecure users whenever possible. This enables communication with the upcoming TextSecure for iOS, helps users avoid SMS fees, and obscures conversation metadata from telcos.
+
+The transition to a new transport is also a good opportunity for us to evaluate and introduce additional cryptographic protocol changes. Below is one cryptographic protocol change we’re thinking of making that we’d welcome feedback on.">
+
+    
+    
+
+    <title>Open WhisperSystems &gt;&gt; Blog &gt;&gt; Simplifying OTR deniability.</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="https://whispersystems.org/assets/header/favicon-1a9e68f2aa36885672375b123cdcdb3a.ico" type="image/x-icon">
+    <link rel="icon" href="https://whispersystems.org/assets/header/favicon-1a9e68f2aa36885672375b123cdcdb3a.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="https://whispersystems.org/assets/normalize-6b4d606d4fbe39d400b8defecf5c4814.css">
+    <link rel="stylesheet" href="https://whispersystems.org/assets/bootstrap-carousel-d6ef0c0e3b460109db2b3c288b3221ed.css">
+    <link rel="stylesheet" href="https://whispersystems.org/assets/main-819a0df4827d41233d4460818b74ab22.css">
+<!--
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/bootstrap-carousel.css">
+    <link rel="stylesheet" href="/css/main.css">
+-->
+    <link rel="stylesheet" href="https://whispersystems.org/fonts/opensans/stylesheet.css">
+    <link rel="stylesheet" href="https://whispersystems.org/fonts/bitter/stylesheet.css">
+
+    <script src="./Open WhisperSystems    Blog    Simplifying OTR deniability._files/hn.js"></script><script id="twitter-wjs" src="./Open WhisperSystems    Blog    Simplifying OTR deniability._files/widgets.js" class="disconnect-collapsed"></script><script src="./Open WhisperSystems    Blog    Simplifying OTR deniability._files/modernizr-2.6.2-respond-1.1.0-9ad640e67a5c064f35b75785b373f25e.min"></script><style type="text/css"></style>
+<!--    <script src="/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>-->
+
+    <link href="./Open WhisperSystems    Blog    Simplifying OTR deniability._files/css" rel="stylesheet" type="text/css">
+  <script type="text/javascript" async="" src="./Open WhisperSystems    Blog    Simplifying OTR deniability._files/embed.js"></script><script type="text/javascript" async="" src="./Open WhisperSystems    Blog    Simplifying OTR deniability._files/js" class="disconnect-collapsed"></script></head>
+
+  <body style="">
+    <div id="wrap">
+      <div id="container">
+        <header class="main-head">
+          <nav class="topnav bar container">
+            <div class="header-graphics">
+              <ul>
+                <li><a class="scroll" href="https://whispersystems.org/#privacy">Our Apps</a></li>
+                <li><a href="https://whispersystems.org/blog/">The Blog</a></li>
+                <li><a href="http://support.whispersystems.org/">Support</a></li>
+                <li><a title="Twitter" class="twitter" href="https://twitter.com/whispersystems">Twitter</a></li>
+              </ul>
+              <a href="https://whispersystems.org/" id="raven-logo">
+                <img class="bird" alt="Raven Logo" src="./Open WhisperSystems    Blog    Simplifying OTR deniability._files/raven-46e547e5d71484be52060be1155f6ff2.png">
+              </a>
+              <a href="https://whispersystems.org/" id="text-logo">
+                <img class="whisper" alt="Whisper Systems" src="./Open WhisperSystems    Blog    Simplifying OTR deniability._files/whispersystems-9114542c48e0023f090150704b562c8d.png" width="243" height="79">
+              </a>
+            </div>
+
+          </nav>
+
+          
+        </header>
+
+        <section id="blog">
+
+  <section id="title" class="container">
+    <img class="arrow" src="./Open WhisperSystems    Blog    Simplifying OTR deniability._files/black_down_arrow-d4ae964aca08d864a39969a4298c43b3.png">
+    <div class="rss"><a href="https://whispersystems.org/blog/rss.xml"><img class="feed" src="./Open WhisperSystems    Blog    Simplifying OTR deniability._files/rss-fbc111f320cae80752ade1985a0d8f3e.png"></a></div>
+    
+    
+      <h2><a href="https://whispersystems.org/blog/">Blog</a> &gt;&gt; Simplifying OTR deniability.</h2>
+    
+
+  </section>
+
+  <article class="container">
+
+
+<p>At Open Whisper Systems we help develop <a href="https://play.google.com/store/apps/details?id=org.thoughtcrime.securesms">TextSecure</a>, an encrypted chat application for Android. TextSecure was designed as a general purpose SMS/MMS client which would also automatically encrypt conversations when communicating with other TextSecure users. For those encrypted sessions, TextSecure uses a compact derivative of the well known <a href="http://www.cypherpunks.ca/otr/">OTR protocol</a>.</p>
+
+<p>We’re currently in the process of transitioning TextSecure to use a device’s data channel as a transport for communication with other TextSecure users whenever possible. This enables communication with the upcoming <a href="https://whispersystems.org/blog/iphone-rsn">TextSecure for iOS</a>, helps users avoid SMS fees, and obscures conversation metadata from telcos.</p>
+
+<p>The transition to a new transport is also a good opportunity for us to evaluate and introduce additional cryptographic protocol changes. Below is one cryptographic protocol change we’re thinking of making that we’d welcome feedback on.</p>
+
+<p>
+
+</p>
+
+<h2 id="otr_today">OTR Today</h2>
+
+<p>One of OTR’s primary features is a property called <em>deniability</em>. If someone receives an OTR message from you, they can be absolutely sure you sent it (rather than having been forged by some third party), but can’t prove to anyone else that it was a message you wrote. This is a nice change compared to PGP signatures, for instance, where anyone who receives a PGP signed message can prove exactly who wrote it to anyone else.</p>
+
+<p>Let’s see how this works. A simplified version of the initial OTR key exchange looks like this:</p>
+
+<p><img src="./Open WhisperSystems    Blog    Simplifying OTR deniability._files/otr-current.png" class="nice"></p>
+
+<p>Each participant has a long-term identity key (A and B) that they use to sign an ephemeral key (a and b), which they exchange and use to <a href="https://en.wikipedia.org/wiki/Diffie%E2%80%93Hellman_key_exchange">calculate a shared secret</a>. In reality, this initial exchange is more complex, since it actually happens inside <em>another</em> ephemeral key exchange (for privacy reasons), but this is the basic thrust of it.</p>
+
+<p>The shared secret from this key exchange is used to derive a sending and receiving cipher key for each party, as well as a set of MAC keys for each party. Every transmitted message includes a <a href="https://en.wikipedia.org/wiki/Message_authentication_code">MAC</a>, which the message’s recipient can verify. Since the key used to construct and verify the MAC was derived from the shared secret, and since the shared secret was derived from a key exchange that was in turn signed by the sender’s long-term identity key, the recipient can be sure that the message was really constructed by their peer in the conversation.</p>
+
+<p>The message is “deniable,” however, because the MAC keys are derived from a <em>shared</em> secret. Unlike PGP signatures, where the sender is the only person capable of producing the signature, the recipient of an OTR message is <em>also</em> capable of producing a sender’s MAC. This doesn’t compromise the integrity of the conversation for its participants, but does prevent a message’s recipient from revealing the MAC’d message to a third party as proof that it was produced by the sender, since it could have just as easily been constructed by the recipient themselves. Exactly what we want.</p>
+
+<p>OTR’s deniability efforts don’t stop there, however. As a conversation progresses, OTR’s key material will continually roll forward (for ongoing <a href="https://en.wikipedia.org/wiki/Perfect_forward_secrecy">forward secrecy</a>), and every time a conversation’s MAC keys roll forward, OTR publishes the old ones onto the wire in the clear. The idea being that, given old MAC keys, any passive observer could technically modify old ciphertext and produce forged but valid MACs for it, which increases a message’s plausible deniability without compromising a conversation’s integrity (since those old MAC keys can’t be used for new messages).</p>
+
+<h2 id="limitations">Limitations</h2>
+
+<p>As implementors of a protocol that’s derivative of OTR, there are a few things that we haven’t been satisfied with.</p>
+
+<h3 id="complexity">Complexity</h3>
+
+<p>OTR uses a Diffie-Hellman key exchange of ephemeral keys, signed by long-term identity keys. While Diffie-Hellman is remarkably simple, <a href="https://en.wikipedia.org/wiki/Digital_Signature_Algorithm">DSA</a> (used to calculate those identity key signatures) is not nearly as simple, and is often <a href="http://www.exophase.com/20540/hackers-describe-ps3-security-as-epic-fail-gain-unrestricted-access/">easy to fuck up</a>. It’d be nice to avoid subjecting ourselves to that increased complexity if we can.</p>
+
+<p>Additionally, publishing old MAC keys in the clear is a somewhat strange contortion for a protocol to make, and has a dangerous feeling associated with it. Ephemeral or not, it seems like it’d be ideal if all our secrets could remain secret. We’d be happy if it were possible for us to eliminate that added protocol complexity as well.</p>
+
+<h3 id="limited_forgability">Limited Forgability</h3>
+
+<p>Presumably, OTR goes through the contortions of publishing old MAC keys to increase an old message’s forgability, which should strengthen that message’s deniability (if <em>anyone</em> could have forged it, it’s easier to deny). However, it’s not entirely clear how this works in practice.</p>
+
+<p>It’s true that by publishing old MAC keys, anyone is capable of modifying the <em>ciphertext</em> of a previously observed message. However, even if that person can guess the plaintext and is capable of making predictable modifications to the ciphertext via a malleable encryption scheme, they still can’t demonstrate valid plaintext to anyone else without the cipher keys (and if they had those, they would be able to calculate the MAC keys anyway).</p>
+
+<p>What’s more, since the initial OTR key exchange is signed and transmitted through an unobservable channel (an “outer” ephemeral key exchange), it’s not actually possible for <em>anyone</em> to produce what appears to be a conversation with you. Only people you’ve <em>actually</em> had a conversation with are in possession of a signed ephemeral key from you, and are thus the only ones capable of producing plaintext messages attributed to you. Publishing old plaintext MAC keys in the clear does not substantially increase this set of people’s ability to forge messages from you, since they are already in possession of the MAC keys.</p>
+
+<p>So even after going through the contortions of publishing plaintext MAC keys, the set of people capable of producing forged messages from a sender is still just the set of people who’ve actually received messages from that sender.</p>
+
+<h2 id="potential_simplifications_and_improvements">Potential Simplifications and Improvements</h2>
+
+<p>The inimitable <a href="http://trevp.net/">Trevor Perrin</a> turned us on to a trick that we can use to greatly simplify and improve OTR’s deniability property. All it takes is modifying the initial key exchange from this:</p>
+
+<p><img src="./Open WhisperSystems    Blog    Simplifying OTR deniability._files/otr-current.png" class="nice"></p>
+
+<p>To this:</p>
+
+<p><img src="./Open WhisperSystems    Blog    Simplifying OTR deniability._files/otr-simplified.png" class="nice"></p>
+
+<p>This replaces two DSA signatures and one Diffie-Hellman exchange with three Diffie-Hellman exchanges. Each participant still has a long-term identity key (A and B) and an ephemeral key (a and b). However, instead of signing the ephemeral keys, participants simply exchange both unsigned keys (g<sup>A</sup>,g<sup>a</sup>) and (g<sup>B</sup>,g<sup>b</sup>) to calculate three shared secrets: g<sup>aB</sup>, g<sup>Ab</sup>, and g<sup>ab</sup>.</p>
+
+<p>By then using all three shared secrets as one combined seed to the initial <a href="https://en.wikipedia.org/wiki/Key_derivation_function">KDF</a>, we accomplish the following:</p>
+
+<ol>
+<li><strong>Reduced Algorithmic Complexity</strong>. We’ve eliminated DSA and have a nice authenticated key exchange that relies solely on the simplicity of Diffie-Hellman.</li>
+
+<li><strong>Increased Forgability</strong>. Since there are no signatures involved, anyone could take A’s public key, make up an ephemeral keypair for A (“a” in the diagram above), combine that with their own identity key and ephemeral key (“C” and “c”), and produce an entire forged transcript – <em>even if they’ve never had a conversation with “A” before</em>. Now anyone is capable of easily producing a forged message from anyone else, whether they’ve actually had a conversation with them before or not.</li>
+
+<li><strong>Reduced Protocol Complexity</strong>. Since <em>anyone</em> is capable of using <em>only</em> someone’s public identity key to produce an entire forged conversation, there is no need to publish old MAC keys in the clear any longer. Our secrets can remain secret, and we can eliminate that somewhat odd bit of protocol complexity.</li>
+
+<li><strong>Maintained Forward Secrecy</strong>. Since an ephemeral handshake is part of the KDF seed, the compromise of an identity key will still never result in the compromise of previously transmitted ciphertext – or even passive observation of future ciphertext.</li>
+
+<li><strong>Smaller Payloads</strong>. Instead of transmitting an identity key, an ephemeral key, and a signature during the handshake, one only needs to transmit an identity key and an ephemeral key, reducing the payload by the size of the signature (a significant amount for transports like SMS). Additionally, subsequent message payload sizes are also reduced, since broadcasting plaintext MAC keys is no longer necessary.</li>
+</ol>
+
+<p>We found Trevor’s suggestion to have surprising results. With one small change to the initial key exchange, we can reduce its complexity (no more DSA), eliminate publishing old MAC keys in the clear, increase deniability by increasing forgability, and reduce payload size – all without increasing the number of round trips required or introducing any other additional complexity.</p>
+
+<p>We’re currently looking at integrating this change into the next version of the TextSecure protocol, along with a number of other improvements for asynchronous communication that we’ll write more about later.</p>
+
+<p><a href="https://twitter.com/moxie">Moxie Marlinspike</a>, 27 July 2013</p>
+
+
+  <ul class="social-buttons">
+    <li><a href="https://twitter.com/share" class="twitter-share-button" data-via="whispersystems">Tweet</a></li>
+    <li><iframe src="about:blank" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:107px; height:21px;" allowtransparency="true" class="disconnect-collapsed"></iframe></li>
+    <li><iframe src="./Open WhisperSystems    Blog    Simplifying OTR deniability._files/button.html" scrolling="auto" frameborder="0" width="75px" height="20px" class="hn-share-iframe"></iframe></li>
+  </ul>
+
+  <div id="disqus_thread"><iframe id="dsq-2" data-disqus-uid="2" allowtransparency="true" frameborder="0" tabindex="0" title="Disqus" width="100%" src="./Open WhisperSystems    Blog    Simplifying OTR deniability._files/saved_resource.html" scrolling="no" horizontalscrolling="no" verticalscrolling="no" style="width: 100% !important; border: none !important; overflow: hidden !important; height: 1472px !important;"></iframe></div>
+
+<!-- Final scripts after vital HTML elements in post -->
+
+  <script>
+      var disqus_shortname = 'openwhispersystems';
+
+      (function() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+  </script>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+  </script>
+  <script>
+    (function(d, t) {
+    var g = d.createElement(t),
+    s = d.getElementsByTagName(t)[0];
+    g.src = '//hnbutton.appspot.com/static/hn.js';
+    s.parentNode.insertBefore(g, s);
+    }(document, 'script'));
+  </script>
+
+</article>
+
+
+</section>
+
+
+        <section id="bottom">
+          Stay in touch,
+          <a href="https://twitter.com/whispersystems" class="twitter-follow-button" data-show-count="false" data-size="large" data-show-screen-name="false"> Follow @whispersystems </a> on Twitter.
+          <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+        </section>
+
+        <div class="bar-wrap">
+          <footer class="bar">
+            <p class="notice copyright">© 2013-2014 Open Whisper Systems — info@whispersystems.org</p>
+            <nav class="botnav">
+              <ul>
+                <li><a class="scroll" href="https://whispersystems.org/#privacy">Our Apps</a></li>
+                <li><a href="https://whispersystems.org/blog/">The Blog</a></li>
+                <li><a href="http://support.whispersystems.org/">Support</a></li>
+                <li><a title="Twitter" class="twitter" href="https://twitter.com/whispersystems">Twitter</a></li>
+              </ul>
+            </nav>
+          </footer>
+          <div class="clearfix"></div>
+        </div>
+      </div> <!-- /container -->
+    </div> <!-- /wrap -->
+
+<!-- Final scripts after vital HTML elements in root -->
+
+    <script src="./Open WhisperSystems    Blog    Simplifying OTR deniability._files/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.8.3.min.js"><\/script>')</script>
+
+    <script src="./Open WhisperSystems    Blog    Simplifying OTR deniability._files/bootstrap-transition-84668559f089615b0830b7410b9f98e0.js"></script>
+    <script src="./Open WhisperSystems    Blog    Simplifying OTR deniability._files/bootstrap-carousel-dcd4acf534143f6ef436187f10743f4f.js"></script>
+    <script src="./Open WhisperSystems    Blog    Simplifying OTR deniability._files/main-de2b111c426769f56672e9f70af47061.js"></script>
+
+<!--<script src="/js/vendor/bootstrap-transition.js"></script>
+    <script src="/js/vendor/bootstrap-carousel.js"></script>
+    <script src="/js/main.js"></script> "Commented out because of JEKYLL Assets" -->
+
+    <script>
+      var clicky_site_ids = clicky_site_ids || [];
+      clicky_site_ids.push(100570585);
+      (function() {
+      var s = document.createElement('script');
+      s.type = 'text/javascript';
+      s.async = true;
+      s.src = '//static.getclicky.com/js';
+      ( document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0] ).appendChild( s );
+      })();
+    </script>
+    <noscript>&lt;p&gt;&lt;img alt="Clicky" width="1" height="1" src="//in.getclicky.com/100570585ns.gif" /&gt;&lt;/p&gt;</noscript>
+
+  
+
+</body></html>
