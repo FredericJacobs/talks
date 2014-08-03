@@ -16,3 +16,4 @@
 - Axolotl, an asynchronous cryptographic protocol with perfect forward secrecy for long-lived sessions,  Dahucon 2014. [Slides](https://speakerdeck.com/fredericjacobs/axolotl-an-asynchronous-cryptographic-protocol-with-perfect-forward-secrecy-for-long-lived-sessions) 
 - Opsec for journalists, lessons learned from the Snowden Leaks, Cryptoparty Fribourg, May 2014.
 - [Usable Cryptography](https://ind.ie/summit/), IndieTech Summit, 4th of July 2014. [Slides](https://speakerdeck.com/fredericjacobs/usable-cryptography)
+- [Signal](http://citizenlab.org/summerinstitute/2014.html), Citizen Lab Summer Institute, University of Toronto, July 2014
