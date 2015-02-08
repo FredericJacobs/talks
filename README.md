@@ -18,3 +18,7 @@
 - [Usable Cryptography](https://ind.ie/summit/), IndieTech Summit, 4th of July 2014. [Slides](https://speakerdeck.com/fredericjacobs/usable-cryptography)
 - [Signal](http://citizenlab.org/summerinstitute/2014.html), Citizen Lab Summer Institute, University of Toronto, July 2014
 - Applications of the Jacobi method to lattice reduction, EPFL, December 2014 [Slides](https://speakerdeck.com/fredericjacobs/lattice-cryptography-the-jacobi-reduction-algorithm)
+
+### 2015
+
+- [Revisiting the Cypherpunk Manifesto](http://liftconference.com/lift15/speakers/3702), Lift 2015. [Slides](https://speakerdeck.com/fredericjacobs/revisiting-the-cypherpunk-manifesto)
