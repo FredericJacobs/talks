@@ -25,3 +25,4 @@
 - Déploiements cryptographiques à large échelle, [InnoVaud Connect](http://blog.alpict.com/2015/05/19/cybersecurite-un-innovaudconnect-pour-parler-des-opportunites/), May
 - Asynchronous messaging protocols, EPFL LCA, June
 - Advances in Secure Messaging, [Hack.lu](http://2015.hack.lu/talks/#advances-in-secure-messaging-protocols), October
+- [Reflections on trusting Bitcode](https://medium.com/@FredericJacobs/why-i-m-not-enabling-bitcode-f35cd8fbfcc5), [ITSecX](https://itsecx.fhstp.ac.at/programm_2015/), November
