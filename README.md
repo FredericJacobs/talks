@@ -23,4 +23,5 @@
 
 - [Revisiting the Cypherpunk Manifesto](http://liftconference.com/lift15/speakers/3702), Lift 2015. [Slides](https://speakerdeck.com/fredericjacobs/revisiting-the-cypherpunk-manifesto)
 - Déploiements cryptographiques à large échelle, [InnoVaud Connect](http://blog.alpict.com/2015/05/19/cybersecurite-un-innovaudconnect-pour-parler-des-opportunites/), May
-- Advances in asynchronous messaging protocols, EPFL LCA, June
+- Asynchronous messaging protocols, EPFL LCA, June
+- Advances in Secure Messaging, [Hack.lu](http://2015.hack.lu/talks/#advances-in-secure-messaging-protocols), October
