@@ -26,3 +26,7 @@
 - Asynchronous messaging protocols, EPFL LCA, June
 - [Advances in Secure Messaging](https://speakerdeck.com/fredericjacobs/secure-messaging-hack-dot-lu-2015), [Hack.lu](http://2015.hack.lu/talks/#advances-in-secure-messaging-protocols), October
 - [Reflections on trusting Bitcode](https://medium.com/@FredericJacobs/why-i-m-not-enabling-bitcode-f35cd8fbfcc5), [ITSecX](https://itsecx.fhstp.ac.at/programm_2015/), November.
+
+### 2016
+
+- [(Open Source) Software Supply Chain Security](https://speakerdeck.com/fredericjacobs/open-source-software-supply-chain-security), [Fri Software Days](https://fri-software-days.ch/index.php?option=com_content&view=article&id=221&Itemid=723&lang=en), 1 February
