@@ -17,7 +17,7 @@
 - Opsec for journalists, lessons learned from the Snowden Leaks, Cryptoparty Fribourg, May 2014.
 - [Usable Cryptography](https://ind.ie/summit/), IndieTech Summit, 4th of July 2014. [Slides](https://speakerdeck.com/fredericjacobs/usable-cryptography)
 - [Signal](http://citizenlab.org/summerinstitute/2014.html), Citizen Lab Summer Institute, University of Toronto, July 2014
-- Applications of the Jacobi method to lattice reduction, EPFL, December 2014 [Slides](https://speakerdeck.com/fredericjacobs/lattice-cryptography-the-jacobi-reduction-algorithm)
+- Applications of the Jacobi method to lattice reduction, Laboratory for cryptologic algorithms EPFL, December 2014 [Slides](https://speakerdeck.com/fredericjacobs/lattice-cryptography-the-jacobi-reduction-algorithm)
 
 ### 2015
 
@@ -30,3 +30,5 @@
 ### 2016
 
 - [(Open Source) Software Supply Chain Security](https://speakerdeck.com/fredericjacobs/open-source-software-supply-chain-security), [Fri Software Days](https://fri-software-days.ch/index.php?option=com_content&view=article&id=221&Itemid=723&lang=en), 1 February
+- [TEDx Brussels: Why master keys are making us less safe](http://www.fredericjacobs.com/blog/2016/03/16/tedx/), 14 March
+- Beating the trust out of the root of trust, InsomniHack, 18 March
