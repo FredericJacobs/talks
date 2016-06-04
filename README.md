@@ -32,3 +32,4 @@
 - [(Open Source) Software Supply Chain Security](https://speakerdeck.com/fredericjacobs/open-source-software-supply-chain-security), [Fri Software Days](https://fri-software-days.ch/index.php?option=com_content&view=article&id=221&Itemid=723&lang=en), 1 February
 - [TEDx Brussels: Why master keys are making us less safe](http://www.fredericjacobs.com/blog/2016/03/16/tedx/), 14 March
 - Beating the trust out of the root of trust, InsomniHack, 18 March
+- [Messaging in Times of Surveillance](https://speakerdeck.com/fredericjacobs/messaging-in-times-of-surveillance), [TU/e Security in Times of Surveillance](https://www.win.tue.nl/eipsi/surveillance-2016.html), 26 May 
